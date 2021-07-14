@@ -83,11 +83,8 @@
                         <a class="mobile-menu" id="mobile-collapse" href="#!">
                             <i class="ti-menu"></i>
                         </a>
-                        <a class="mobile-search morphsearch-search" href="#">
-                            <i class="ti-search"></i>
-                        </a>
                         <a href="{% url 'main' %}">
-                            <img class="img-fluid" src="{% static 'assets/images/two.png' %}" alt="Theme-Logo" />
+                            <img class="img-fluid" src="{% static 'assets/images/three.png' %}" alt="Theme-Logo" />
                         </a>
                         <a class="mobile-options">
                             <i class="ti-more"></i>
@@ -114,15 +111,14 @@
                                 </a>
                                 <ul class="show-notification">
                                     <li>
-                                        <h6>Notifications</h6>
-                                        <label class="label label-danger">New</label>
+                                        <h6>Team Members</h6>
                                     </li>
                                     <li>
                                         <div class="media">
                                             <img class="d-flex align-self-center img-radius" src="{% static 'assets/images/avatar-4.jpg' %}" alt="Generic placeholder image">
                                             <div class="media-body">
                                                 <h5 class="notification-user">PM 이재웅</h5>
-                                                <p class="notification-msg">Lorem ipsum dolor sit amet, consectetuer elit.</p
+                                                <p class="notification-msg">담당: 기획서</p>
                                             </div>
                                         </div>
                                     </li>
@@ -130,8 +126,8 @@
                                         <div class="media">
                                             <img class="d-flex align-self-center img-radius" src="{% static 'assets/images/avatar-3.jpg' %}" alt="Generic placeholder image">
                                             <div class="media-body">
-                                                <h5 class="notification-user">김소리</h5>
-                                                <p class="notification-msg">Lorem ipsum dolor sit amet, consectetuer elit.</p>
+                                                <h5 class="notification-user">김병현</h5>
+                                                <p class="notification-msg">담당: 전처리</p>
                                             </div>
                                         </div>
                                     </li>
@@ -139,8 +135,8 @@
                                         <div class="media">
                                             <img class="d-flex align-self-center img-radius" src="{% static 'assets/images/avatar-4.jpg' %}" alt="Generic placeholder image">
                                             <div class="media-body">
-                                                <h5 class="notification-user">김병현</h5>
-                                                <p class="notification-msg">Lorem ipsum dolor sit amet, consectetuer elit.</p>
+                                                <h5 class="notification-user">김소리</h5>
+                                                <p class="notification-msg">담당: 시각화, 장고</p>
                                             </div>
                                         </div>
                                     </li>
@@ -149,7 +145,7 @@
                                             <img class="d-flex align-self-center img-radius" src="{% static 'assets/images/avatar-4.jpg' %}" alt="Generic placeholder image">
                                             <div class="media-body">
                                                 <h5 class="notification-user">유준웅</h5>
-                                                <p class="notification-msg">Lorem ipsum dolor sit amet, consectetuer elit.</p>
+                                                <p class="notification-msg">담당: 전처리</p>
                                             </div>
                                         </div>
                                     </li>
@@ -175,43 +171,49 @@
                                     <img class="img-40 img-radius" src="{% static 'assets/images/water.png' %}" alt="User-Profile-Image">
                                     <div class="user-details">
                                         <span>첫번째 Mini Project</span>   <!--메뉴바 상단 이름-->
-                                        <span id="more-details">2조</span>
+                                        <span id="more-details">3조</span>
                                     </div>
                                 </div>
                             </div>
-                            <div class="pcoded-navigatio-lavel" data-i18n="nav.category.navigation">Layout</div>
+                            <div class="pcoded-navigatio-lavel" data-i18n="nav.category.navigation">Main</div>
                             <ul class="pcoded-item pcoded-left-item">
                                 <li class="active">
-                                    <a href="{% url 'main' %}">
+                                    <a href="{% url 'chart1' %}">
                                         <span class="pcoded-micon"><i class="ti-home"></i><b>D</b></span>
-                                        <span class="pcoded-mtext" data-i18n="nav.dash.main">Dashboard</span>
+                                        <span class="pcoded-mtext" data-i18n="nav.dash.main">지역별 수질 정보</span>
+                                        <span class="pcoded-mcaret"></span>
+                                    </a>
+                                </li>
+                                <li class="active">
+                                    <a href="{% url 'chart2' %}">
+                                        <span class="pcoded-micon"><i class="ti-home"></i><b>D</b></span>
+                                        <span class="pcoded-mtext" data-i18n="nav.dash.main">지역별 건강 정보</span>
+                                        <span class="pcoded-mcaret"></span>
+                                    </a>
+                                </li>
+                                <li class="active">
+                                    <a href="{% url 'chart3' %}">
+                                        <span class="pcoded-micon"><i class="ti-home"></i><b>D</b></span>
+                                        <span class="pcoded-mtext" data-i18n="nav.dash.main">연도별 변화 양상</span>
                                         <span class="pcoded-mcaret"></span>
                                     </a>
                                 </li>
                             </ul>
-                            <div class="pcoded-navigatio-lavel" data-i18n="nav.category.forms">Forms &amp; Tables</div>
+                            <div class="pcoded-navigatio-lavel" data-i18n="nav.category.forms">Model</div>
                             <ul class="pcoded-item pcoded-left-item">
-                                <li>
-                                    <a href="form-elements-component.html">
-                                        <span class="pcoded-micon"><i class="ti-layers"></i><b>FC</b></span>
-                                        <span class="pcoded-mtext" data-i18n="nav.form-components.main">Form Components</span>
+                                <li class="active">
+                                    <a href="{% url 'ml' %}">
+                                        <span class="pcoded-micon"><i class="ti-layers"></i><b>D</b></span>
+                                        <span class="pcoded-mtext" data-i18n="nav.dash.main">수질과 건강</span>
                                         <span class="pcoded-mcaret"></span>
                                     </a>
                                 </li>
-                                <li>
-                                    <a href="bs-basic-table.html">
-                                        <span class="pcoded-micon"><i class="ti-layers"></i><b>FC</b></span>
-                                        <span class="pcoded-mtext" data-i18n="nav.form-components.main">Basic Table</span>
-                                        <span class="pcoded-mcaret"></span>
-                                    </a>
-                                </li>
-                                
                             </ul>
 
-                            <div class="pcoded-navigatio-lavel" data-i18n="nav.category.forms">Chart &amp; Maps</div>
+                           <!-- <div class="pcoded-navigatio-lavel" data-i18n="nav.category.forms">Chart &amp; Maps</div>
                             <ul class="pcoded-item pcoded-left-item">
                                 <li>
-                                    <a href="{% url 'chart' %}">
+                                    <a href="{% url 'chart1' %}">
                                         <span class="pcoded-micon"><i class="ti-layers"></i><b>FC</b></span>
                                         <span class="pcoded-mtext" data-i18n="nav.form-components.main">Chart</span>
                                         <span class="pcoded-mcaret"></span>
@@ -255,7 +257,7 @@
                                     </ul>
                                 </li>
                                 
-                            </ul>
+                            </ul>-->
 
                         </div>
                     </nav>
