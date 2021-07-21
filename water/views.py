@@ -26,7 +26,7 @@ def chart1s(request):
     result = waterAnal.locWaterQual(loc)
     return HttpResponse(json.dumps(result), content_type='application/json')
 
-def chars2s(request):
+def chart2s(request):
     loc = request.GET['loc']
     result = healthAnal.locHealthQual(loc)
     return HttpResponse(json.dumps(result), content_type='application/json')

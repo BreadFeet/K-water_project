@@ -5,7 +5,7 @@
     function display(da) {
         Highcharts.chart('container', {
             title: {
-                text: da.loc + '의 건강관련요인 데이터'
+                text: da.loc + '의 건강관련요인 정보'
             },
             subtitle: {
                 text: 'Source: 질병관리청 - 지역사회건강조사'
@@ -55,9 +55,10 @@
             datatype: 'json',
             success: function(data) {
                 display(data)
-            };
+            }
         });
     };
+
 
     $(document).ready(function() {
         $('button').click(function() {
@@ -79,8 +80,8 @@
                                                 <div class="page-header-title">
                                                     <i class="icofont icofont-chart-bar-graph bg-c-blue"></i>
                                                     <div class="d-inline">
-                                                        <h4>차트 제목</h4>
-                                                        <span>차트 설명....</span>
+                                                        <h4>지역별 건강 관련 요인 정보</h4>
+                                                        <span>• 정확한 특별시/광역시/특별자치시/도 이름으로 검색하십시오.</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -98,7 +99,8 @@
                                                 <div class="card">
                                                     <div class="card-header">
                                                         <h5>Line chart</h5>
-                                                        <span>lorem ipsum dolor sit amet, consectetur adipisicing elit</span>
+                                                        <span>• 삶의 질 지수, 양호한 주관적 건강수준 인지율, 스트레스 인지율, 우울감 경험률,
+                                                            주관적 구강건강이 나쁜 인구의 분율, 연간 보건기관 이용률을 확인할 수 있습니다.</span>
                                                         <div class="card-header-right">                                                             <i class="icofont icofont-spinner-alt-5"></i>                                                         </div>
                                                     </div>
                                                     <div class="card-block">
@@ -120,57 +122,8 @@
             </div>
         </div>
     </div>
-<div class="fixed-button">
-	<a href="https://codedthemes.com/item/guru-able-admin-template/" target="_blank" class="btn btn-md btn-primary">
-	  <i class="fa fa-shopping-cart" aria-hidden="true"></i> Upgrade To Pro
-	</a>
-</div>
 
 
-    <!-- Warning Section Starts -->
-    <!-- Older IE warning message -->
-    <!--[if lt IE 9]>
-<div class="ie-warning">
-    <h1>Warning!!</h1>
-    <p>You are using an outdated version of Internet Explorer, please upgrade <br/>to any of the following web browsers to access this website.</p>
-    <div class="iew-container">
-        <ul class="iew-download">
-            <li>
-                <a href="http://www.google.com/chrome/">
-                    <img src="{% static 'assets/images/browser/chrome.png' %}" alt="Chrome">
-                    <div>Chrome</div>
-                </a>
-            </li>
-            <li>
-                <a href="https://www.mozilla.org/en-US/firefox/new/">
-                    <img src="{% static 'assets/images/browser/firefox.png' %}" alt="Firefox">
-                    <div>Firefox</div>
-                </a>
-            </li>
-            <li>
-                <a href="http://www.opera.com">
-                    <img src="{% static 'assets/images/browser/opera.png' %}" alt="Opera">
-                    <div>Opera</div>
-                </a>
-            </li>
-            <li>
-                <a href="https://www.apple.com/safari/">
-                    <img src="{% static 'assets/images/browser/safari.png' %}" alt="Safari">
-                    <div>Safari</div>
-                </a>
-            </li>
-            <li>
-                <a href="http://windows.microsoft.com/en-us/internet-explorer/download-ie">
-                    <img src="{% static 'assets/images/browser/ie.png' %}" alt="">
-                    <div>IE (9 & above)</div>
-                </a>
-            </li>
-        </ul>
-    </div>
-    <p>Sorry for the inconvenience!</p>
-</div>
-<![endif]-->
-<!-- Warning Section Ends -->
 <!-- Required Jquery -->
 <script type="text/javascript" src="{% static 'assets/js/jquery/jquery.min.js' %}"></script>
 <script type="text/javascript" src="{% static 'assets/js/jquery-ui/jquery-ui.min.js' %}"></script>

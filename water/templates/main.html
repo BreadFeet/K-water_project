@@ -1,6 +1,7 @@
 {% extends 'home.html' %}
 {% load static %}
 {% block content %}
+
                     <div class="pcoded-content">
                         <div class="pcoded-inner-content">
                             <!-- Main-body start -->
@@ -13,8 +14,8 @@
                                                 <div class="page-header-title">
                                                     <i class="icofont icofont-layout bg-c-blue"></i>
                                                     <div class="d-inline">
-                                                        <h4>수질과 건강 지표의 상관 관계</h4>
-                                                        <span>정수장 수질 정보를 통해 지역사회 건강지표 분석 및 예측</span>
+                                                        <h4>수질과 건강 지표의 관계성 분석</h4>
+                                                        <span>정수장 수질 정보를 통해 지역사회 건강관련요인 분석 및 예측</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -36,11 +37,11 @@
                                                                 <!-- Nav tabs -->
                                                                 <ul class="nav nav-tabs md-tabs" role="tablist">
                                                                     <li class="nav-item">
-                                                                        <a class="nav-link active" data-toggle="tab" href="#home3" role="tab">개요</a>
+                                                                        <a class="nav-link active" data-toggle="tab" href="#home3" role="tab">아이디어</a>
                                                                         <div class="slide"></div>
                                                                     </li>
                                                                     <li class="nav-item">
-                                                                        <a class="nav-link" data-toggle="tab" href="#profile3" role="tab">프로젝트 기획</a>
+                                                                        <a class="nav-link" data-toggle="tab" href="#profile3" role="tab">프로젝트 도구</a>
                                                                         <div class="slide"></div>
                                                                     </li>
                                                                     <li class="nav-item">
@@ -55,37 +56,36 @@
                                                                 <!-- Tab panes -->
                                                                 <div class="tab-content card-block">
                                                                     <div class="tab-pane active" id="home3" role="tabpanel">
-                                                                        <p class="m-0">지역별 상수도 수질 데이터와 지역사회 건강결과 데이터를 활용하여 일상 용수가 국민 건강에 미치는 영향을 분석한다. 또한 모델을 활용하여 수질 정보로서 건강 지표를 예측할 수 있는 방안을 모색한다.</p>
+                                                                        <p class="m-0">생활 용수의 수질이 건강에 미치는 영향을 확인하고자 하였습니다.
+                                                                            이미 병태생리가 분명하게 밝혀진 질환과 연관짓기 보다는, 다양한 환경요소가 영향을 미칠 수 있는 질환 또는 건강지표를 찾아서
+                                                                            수질과의 연관성을 있을지 알아보고자 하였습니다. 특히 수질과 "삶의 질" 또는 "보건기관 이용률" 등이 연관성이 있고 예측도가
+                                                                            높은 결과가 있다면 유의미할 것이라고 생각하여 데이터를 선정, 분석하였습니다.</p>
                                                                     </div>
                                                                     <div class="tab-pane" id="profile3" role="tabpanel">
-                                                                        <p class="m-0"> <b>1. 데이터 준비 </b><br>
-                                                                                        1)	독립변수 : 20여개의 수질 평가지표 <br>
-                                                                                        2)	종속변수 : 지역사회 건강결정요인 <br>
-                                                                                        <br>
-                                                                                        <b>2. 전처리 </b><br>
-                                                                                        1)	Pandas를 활용하여 전처리 수행 <br>
-                                                                                        2)	정수장을 지역별로 분류 <br>
-                                                                                        3)	지역별 평균 수질 산출 <br>
-                                                                                        4)	지역별 건강 지표 산출 <br>
-                                                                                        <br>
-                                                                                        <b>3. 분석 </b><br>
-                                                                                        1)	Pandas을 활용하여 분석 수행 <br>
-                                                                                        2)	sklearn패키지를 활용하여 다중회귀분석 실행 <br>
-                                                                                        <br>
-                                                                                        <b>4. 시각화 </b><br>
-                                                                                        1)	python에서 matplotlib과 highcharts를 활용하여 그래프 작성 <br>
-                                                                                        2)	Django를 활용하여 웹 서버에 분석 결과 표시 <br>
-                                                                                        <br>
+                                                                        <img src="{% static 'assets/images/tools.PNG' %}" style="width: 800px; height:500px">
                                                                     </div>
                                                                     <div class="tab-pane" id="messages3" role="tabpanel">
-                                                                        <p class="m-0">Real-world raw data를 활용하여 정형 데이터를 목적에 맞게 전처리 후 활용하는 방법을 익히며, 주제에 맞는 데이터 분석, 시각화 방법을 결정할 수 있도록 한다.</p>
+                                                                        <p class="lead m-t-0"><strong>프로젝트 목표</strong></p>
+                                                                        <p class="m-0">Real-world raw data를 활용하여 정형 데이터를 목적에 맞게 전처리 후 활용하는 방법을 익히며,<br>
+                                                                                       주제에 맞는 데이터 분석, 시각화 방법을 결정할 수 있도록 합니다.</p>
+                                                                        <br>
+                                                                        <br>
+                                                                        <p class="lead m-t-0"><strong>분석 목표</strong></p>
+                                                                        <p class="m-0">• 지역별 상수도 수질과 건강관련요인을 분석 <br>
+                                                                                       • 두 데이터의 연관성을 파악하여 일상 용수가 국민 건강에 미치는 영향이 있는지 확인 <br>
+                                                                                       • 또한 회귀모델을 통해 수질 정보로서 건강 지표를 예측할 수 있는지 확인</p>
                                                                     </div>
                                                                     <div class="tab-pane" id="settings3" role="tabpanel">
-                                                                        <p class="m-0"><b>1. 환경부 K-water 국가상수도정보시스템 상수도 정보 공개자료</b><br>
-                                                                                       <a href="https://www.waternow.go.kr/web/lawData?pMENUID=4">https://www.waternow.go.kr/web/lawData?pMENUID=4</a><br>
-                                                                                       <br>
-                                                                                       <b>2. 질병관리청 지역사회 건강조사 - 지역사회 건강관리 요인 데이터베이스</b><br>
-                                                                                       <a href="https://chs.kdca.go.kr/chs/recsRoom/dataBaseMain.do">https://chs.kdca.go.kr/chs/recsRoom/dataBaseMain.do</a>
+                                                                        <p class="lead m-t-0"><strong>1. 환경부 K-water 국가상수도정보시스템 상수도 정보 공개자료</strong></p>
+                                                                        <p class="m-0">• 대장균, 일반세균, 불소, 염소이온 등 미생물과 화학물질 뿐만 아니라 경도, 냄새, 맛 등의 정보를 포함<br>
+                                                                            • 매월 각 수도사업자에서 측정한 농도 데이터로 구성<br>
+                                                                            • 건강지표 데이터에 맞추어 2008 ~ 2019년 총 12개년도 데이터를 spreadsheet으로 다운받아서 취합</p>
+                                                                            <br>
+                                                                            <br>
+                                                                        <p class="lead m-t-0"><strong>2. 질병관리청 지역사회 건강조사 - 지역사회 건강관리 요인 데이터베이스</strong></p>
+                                                                        <p class="m-0">• 자살, 타살, 각종 질환으로 인한 사망률 뿐만 아니라 삶의 질 지수, 스트레스 인지율, 보건기관 이용률 등의 다양한 건강 정보를 포함<br>
+                                                                            • 질병관리청에서 2008년도부터 수행한 건강통계로, 2019년까지의 데이터가 공개되어 있음<br>
+                                                                            • 질병관리청이 직접 수행한 조사결과가 아니며, 다른 부처에서 공개된 데이터를 수집하여 통계낸 값</p>
 
                                                                         </p>
                                                                     </div>
