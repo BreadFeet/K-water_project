@@ -1,4 +1,8 @@
 from django.shortcuts import render
+from django.http import HttpResponse
+import json
+from myanalysis.analysis import waterAnal, healthAnal
+
 
 # Create your views here.
 def main(request):
@@ -15,3 +19,14 @@ def chart3(request):
 
 def ml(request):
     return render(request, 'ml.html')
+
+
+def chart1s(request):
+    loc = request.GET['loc']
+    result = waterAnal.locWaterQual(loc)
+    return HttpResponse(json.dumps(result), content_type='application/json')
+
+def chars2s(request):
+    loc = request.GET['loc']
+    result = healthAnal.locHealthQual(loc)
+    return HttpResponse(json.dumps(result), content_type='application/json')

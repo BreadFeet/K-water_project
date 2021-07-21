@@ -30,6 +30,14 @@
       <!-- Style.css -->
       <link rel="stylesheet" type="text/css" href="{% static 'assets/css/style.css' %}">
       <link rel="stylesheet" type="text/css" href="{% static 'assets/css/jquery.mCustomScrollbar.css' %}">
+      <!-- Highcharts.com -->
+      <script src="https://code.highcharts.com/highcharts.js"></script>
+      <script src="https://code.highcharts.com/modules/series-label.js"></script>
+      <script src="https://code.highcharts.com/modules/exporting.js"></script>
+      <script src="https://code.highcharts.com/modules/export-data.js"></script>
+      <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+      <!-- Ajax -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   </head>
 
   <body>
@@ -84,7 +92,7 @@
                             <i class="ti-menu"></i>
                         </a>
                         <a href="{% url 'main' %}">
-                            <img class="img-fluid" src="{% static 'assets/images/three.png' %}" alt="Theme-Logo" />
+                            <img class="img-fluid" src="{% static 'assets/images/main_logo.png' %}" alt="Theme-Logo" />
                         </a>
                         <a class="mobile-options">
                             <i class="ti-more"></i>
@@ -109,47 +117,47 @@
                                     <i class="ti-bell"></i>
                                     <span class="badge bg-c-pink"></span>
                                 </a>
-                                <ul class="show-notification">
-                                    <li>
-                                        <h6>Team Members</h6>
-                                    </li>
-                                    <li>
-                                        <div class="media">
-                                            <img class="d-flex align-self-center img-radius" src="{% static 'assets/images/avatar-4.jpg' %}" alt="Generic placeholder image">
-                                            <div class="media-body">
-                                                <h5 class="notification-user">PM 이재웅</h5>
-                                                <p class="notification-msg">담당: 기획서</p>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="media">
-                                            <img class="d-flex align-self-center img-radius" src="{% static 'assets/images/avatar-3.jpg' %}" alt="Generic placeholder image">
-                                            <div class="media-body">
-                                                <h5 class="notification-user">김병현</h5>
-                                                <p class="notification-msg">담당: 전처리</p>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="media">
-                                            <img class="d-flex align-self-center img-radius" src="{% static 'assets/images/avatar-4.jpg' %}" alt="Generic placeholder image">
-                                            <div class="media-body">
-                                                <h5 class="notification-user">김소리</h5>
-                                                <p class="notification-msg">담당: 시각화, 장고</p>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="media">
-                                            <img class="d-flex align-self-center img-radius" src="{% static 'assets/images/avatar-4.jpg' %}" alt="Generic placeholder image">
-                                            <div class="media-body">
-                                                <h5 class="notification-user">유준웅</h5>
-                                                <p class="notification-msg">담당: 전처리</p>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
+<!--                                <ul class="show-notification">-->
+<!--                                    <li>-->
+<!--                                        <h6>Team Members</h6>-->
+<!--                                    </li>-->
+<!--                                    <li>-->
+<!--                                        <div class="media">-->
+<!--                                            <img class="d-flex align-self-center img-radius" src="{% static 'assets/images/avatar-4.jpg' %}" alt="Generic placeholder image">-->
+<!--                                            <div class="media-body">-->
+<!--                                                <h5 class="notification-user">PM 이재웅</h5>-->
+<!--                                                <p class="notification-msg">담당: 기획서</p>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </li>-->
+<!--                                    <li>-->
+<!--                                        <div class="media">-->
+<!--                                            <img class="d-flex align-self-center img-radius" src="{% static 'assets/images/avatar-3.jpg' %}" alt="Generic placeholder image">-->
+<!--                                            <div class="media-body">-->
+<!--                                                <h5 class="notification-user">김병현</h5>-->
+<!--                                                <p class="notification-msg">담당: 전처리</p>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </li>-->
+<!--                                    <li>-->
+<!--                                        <div class="media">-->
+<!--                                            <img class="d-flex align-self-center img-radius" src="{% static 'assets/images/avatar-4.jpg' %}" alt="Generic placeholder image">-->
+<!--                                            <div class="media-body">-->
+<!--                                                <h5 class="notification-user">김소리</h5>-->
+<!--                                                <p class="notification-msg">담당: 시각화, 장고</p>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </li>-->
+<!--                                    <li>-->
+<!--                                        <div class="media">-->
+<!--                                            <img class="d-flex align-self-center img-radius" src="{% static 'assets/images/avatar-4.jpg' %}" alt="Generic placeholder image">-->
+<!--                                            <div class="media-body">-->
+<!--                                                <h5 class="notification-user">유준웅</h5>-->
+<!--                                                <p class="notification-msg">담당: 전처리</p>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </li>-->
+<!--                                </ul>-->
                             </li>
                             <li class="user-profile header-notification">
                                 <a href="#!">
@@ -171,7 +179,7 @@
                                     <img class="img-40 img-radius" src="{% static 'assets/images/water.png' %}" alt="User-Profile-Image">
                                     <div class="user-details">
                                         <span>첫번째 Mini Project</span>   <!--메뉴바 상단 이름-->
-                                        <span id="more-details">3조</span>
+                                        <span id="more-details">김소리</span>
                                     </div>
                                 </div>
                             </div>

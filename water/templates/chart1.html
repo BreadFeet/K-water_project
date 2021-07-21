@@ -1,20 +1,91 @@
 {% extends 'home.html' %}
 {% load static %}
 {% block content %}
+<script>
+    function display(da) {
+        Highcharts.chart('container', {
+            title: {
+                text: da.loc + '의 상수도 수질 정보'
+            },
+            subtitle: {
+                text: 'Source: 환경부 - 국가상수도정보시스템'
+            },
+            yAxis: {
+                title: {
+                    text: '농도 (mg/L)'
+                }
+            },
+            legend: {
+                layout: 'vertical',
+                align: 'right',
+                verticalAlign: 'middle'
+            },
+            plotOptions: {
+                series: {
+                    label: {
+                        connectorAllowed: false
+                    },
+                    pointStart: 2008
+                }
+            },
+            series: da.data,
+            responsive: {
+                rules: [{
+                    condition: {
+                        maxWidth: 500
+                    },
+                    chartOptions: {
+                        legend: {
+                            layout: 'horizontal',
+                            align: 'center',
+                            verticalAlign: 'bottom'
+                        }
+                    }
+                }]
+            }
+        });
+    };
+
+
+    function getData(loc) {
+        $.ajax({
+            url: 'chart1s',
+            data: {loc: loc},
+            type: 'get',
+            datatype: 'json',
+            success: function(data) {
+                //alert(data);
+                display(data);
+            }
+        });
+    };
+
+
+    $(document).ready(function() {
+        $('button').click(function() {
+            loc = $('input[type="text"]').val();
+            //alert(loc)
+            getData(loc);
+        });
+    });
+
+
+</script>
+
                     <div class="pcoded-content">
                         <div class="pcoded-inner-content">
 
                             <div class="main-body">
                                 <div class="page-wrapper">
-                                                     <!-- Page-header start -->
+                                    <!-- Page-header start -->
                                     <div class="page-header card">
                                         <div class="row align-items-end">
                                             <div class="col-lg-8">
                                                 <div class="page-header-title">
                                                     <i class="icofont icofont-chart-bar-graph bg-c-blue"></i>
                                                     <div class="d-inline">
-                                                        <h4>차트 제목</h4>
-                                                        <span>차트 설명....</span>
+                                                        <h4>지역별 상수도 수질 정보</h4>
+                                                        <span>• 정확한 특별시/광역시/특별자치시/도 이름으로 검색하십시오.</span>
                                                         <div class="col-sm-12">
                                                         </div>
                                                     </div>
@@ -30,29 +101,31 @@
                                     <div class="page-body">
                                         <div class="row">
                                             <!-- Bar Chart start -->
-                                            <div class="col-md-12 col-lg-6">
-                                                <div class="card">
-                                                    <div class="card-header">
-                                                        <h5>Bar chart</h5>
-                                                        <span>lorem ipsum dolor sit amet, consectetur adipisicing elit</span>
-                                                        <div class="card-header-right">                                                             <i class="icofont icofont-spinner-alt-5"></i>                                                         </div>
-                                                    </div>
-                                                    <div class="card-block">
-                                                        <div id="morris-bar-chart"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
+<!--                                            <div class="col-md-12 col-lg-6">-->
+<!--                                                <div class="card">-->
+<!--                                                    <div class="card-header">-->
+<!--                                                        <h5>Bar chart</h5>-->
+<!--                                                        <span>lorem ipsum dolor sit amet, consectetur adipisicing elit</span>-->
+<!--                                                        <div class="card-header-right">                                                             <i class="icofont icofont-spinner-alt-5"></i>                                                         </div>-->
+<!--                                                    </div>-->
+<!--                                                    <div class="card-block">-->
+<!--                                                        <div id="morris-bar-chart"></div>-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
+<!--                                            </div>-->
                                             <!-- Bar Chart Ends -->
                                             <!-- EXTRA AREA CHART start -->
                                             <div class="col-lg-12">
                                                 <div class="card">
                                                     <div class="card-header">
-                                                        <h5>Extra area chart</h5>
-                                                        <span>lorem ipsum dolor sit amet, consectetur adipisicing elit</span>
+                                                        <h5>Line chart</h5>
+                                                        <span>• 불소(기준:1.5), 붕소(기준:1), 알루미늄(기준:0.2), 아연(기준:3), 톨루엔(기준:0.7),
+                                                             총트리할로메탄(기준:0.1), 할로아세틱에시드(기준:0.1), 포름알데히드(기준:0.5),
+                                                             클로로포름(기준:0.08)의 농도를 확인할 수 있습니다. </span>
                                                         <div class="card-header-right">                                                             <i class="icofont icofont-spinner-alt-5"></i>                                                         </div>
                                                     </div>
                                                     <div class="card-block">
-                                                        <div id="morris-extra-area"></div>
+                                                        <div id="container"></div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -86,10 +159,10 @@
 <!-- classie js -->
 <script type="text/javascript" src="{% static 'assets/js/classie/classie.js' %}"></script>
 <!-- Morris Chart js -->
-<script src="{% static 'assets/js/raphael/raphael.min.js' %}"></script>
-<script src="{% static 'assets/js/morris.js/morris.js' %}"></script>
+<!--<script src="{% static 'assets/js/raphael/raphael.min.js' %}"></script>-->
+<!--<script src="{% static 'assets/js/morris.js/morris.js' %}"></script>-->
 <!-- Custom js -->
-<script src="{% static 'assets/pages/chart/morris/morris-custom-chart.js' %}"></script>
+<!--<script src="{% static 'assets/pages/chart/morris/morris-custom-chart.js' %}"></script>-->
 <script type="text/javascript" src="{% static 'assets/js/script.js' %}"></script>
 <script src="{% static 'assets/js/pcoded.min.js' %}"></script>
 <script src="{% static 'assets/js/demo-12.js' %}"></script>

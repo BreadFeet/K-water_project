@@ -30,4 +30,8 @@ urlpatterns = [
     path('chart2', views.chart2, name='chart2'),
     path('chart3', views.chart3, name='chart3'),
     path('ml', views.ml, name='ml'),
+
+    path('chart1s', views.chart1s, name='chart1s'),
+    path('chart2s', views.chart2s, name='chart2s'),
+    #path('chart3s', views.chart3s, name='chart3s'),
 ]
