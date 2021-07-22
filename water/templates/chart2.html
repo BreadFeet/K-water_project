@@ -3,7 +3,7 @@
 {% block content %}
 <script>
     function display(da) {
-        Highcharts.chart('container', {
+        Highcharts.chart('container1', {
             title: {
                 text: da.loc + '의 건강관련요인 정보'
             },
@@ -47,23 +47,75 @@
     };
 
 
-    function getData(loc) {
+    function mapDisplay(da) {
+        var positions = new Array();      // 수정 1. 반복문으로 positions를 만들기
+        var iwContent = new Array();      // 수정 2. 인포윈도우 내용을 iwContent에 모으기
+
+        $.each(da, function(i, v) {
+            var aJson = new Object();
+            aJson.title = v.title
+            aJson.latlng = new kakao.maps.LatLng(v.lat, v.lng)
+            positions.push(aJson)
+
+            iwContent[i] = v.content
+        })
+
+        // 마커 이미지의 이미지 주소입니다
+        var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png";
+
+        for (var i = 0; i < positions.length; i ++) {
+            // 마커 이미지의 이미지 크기 입니다
+            var imageSize = new kakao.maps.Size(24, 35);
+
+            // 마커 이미지를 생성합니다
+            var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize);
+
+            // 마커를 생성합니다
+            var marker = new kakao.maps.Marker({
+                map: map, // 마커를 표시할 지도
+                title : positions[i].title, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
+                position: positions[i].latlng, // 마커를 표시할 위치
+                image : markerImage // 마커 이미지
+            });
+
+            // 인포윈도우를 생성합니다
+            var infowindow = new kakao.maps.InfoWindow({
+                content : iwContent[i],
+                position : positions[i].latlng
+                });
+
+            // 마커 위에 인포윈도우를 표시합니다. 두번째 파라미터인 marker를 넣어주지 않으면 지도 위에 표시됩니다
+            infowindow.open(map, marker);
+        }
+    };
+
+
+    function getData(pr, fx) {
         $.ajax({
             url: 'chart2s',
-            data: {loc: loc},
+            data: {param: pr, fx: fx},
             type: 'get',
             datatype: 'json',
             success: function(data) {
-                display(data)
+                if (data.fx == 1) {
+                    display(data);
+                } else {
+                    mapDisplay(data);
+                }
+
             }
         });
     };
 
 
     $(document).ready(function() {
-        $('button').click(function() {
+        $('button:eq(0)').click(function() {
             loc = $('input[type="text"]').val();
-            getData(loc);
+            getData(loc, 1);
+        });
+        $('button:eq(1)').click(function() {
+            year = $('input[type="range"]').val();
+            getData(year, 2);
         });
     });
 </script>
@@ -81,12 +133,13 @@
                                                     <i class="icofont icofont-chart-bar-graph bg-c-blue"></i>
                                                     <div class="d-inline">
                                                         <h4>지역별 건강 관련 요인 정보</h4>
-                                                        <span>• 정확한 특별시/광역시/특별자치시/도 이름으로 검색하십시오.</span>
+                                                        <span>• 정확한 특별시/광역시/특별자치시/도 이름으로 검색하면<br>
+                                                                아래에서 Line Chart를 확인할 수 있습니다.</span>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div>
-                                            <input type="text" class="form-control form-control-info" placeholder="검색 내용" style="width:200px;"><button class="btn btn-info btn-round">Search</button>
+                                            <input type="text" class="form-control form-control-info" placeholder="지역명" style="width:200px;"><button class="btn btn-info btn-round">Search</button>
                                             </div>
                                         </div>
                                     </div>
@@ -101,14 +154,43 @@
                                                         <h5>Line chart</h5>
                                                         <span>• 삶의 질 지수, 양호한 주관적 건강수준 인지율, 스트레스 인지율, 우울감 경험률,
                                                             주관적 구강건강이 나쁜 인구의 분율, 연간 보건기관 이용률을 확인할 수 있습니다.</span>
-                                                        <div class="card-header-right">                                                             <i class="icofont icofont-spinner-alt-5"></i>                                                         </div>
+                                                        <div class="card-header-right">
                                                     </div>
                                                     <div class="card-block">
-                                                        <div id="container"></div>
+                                                        <div id="container1"></div>
                                                     </div>
                                                 </div>
                                             </div>
                                             <!-- EXTRA AREA CHART Ends -->
+                                            <!-- MAP CHART Starts -->
+                                            <div class="col-lg-12">
+                                                <div class="card">
+                                                    <div class="card-header">
+                                                        <h5>Map</h5>
+                                                        <span>• 위도, 경도 정보를 이용하여 카카오맵 API에 건강지표를 표시하였습니다. &emsp; &emsp; &emsp; &emsp;
+                                                            2008년 <input type="range" min="2008" max="2019"> 2019년 &emsp; &emsp;
+                                                            <button class="btn btn-info btn-round">Search</button><br>
+                                                              • 지도를 확대하면 더 자세히 확인할 수 있습니다.</span>
+                                                        <div class="card-header-right">
+                                                    </div>
+                                                    <div class="card-block">
+    <!------------------------------------------- Kakao Map Api Starts---------------------------------------------------------------------------------->
+                                                        <div id="map" style="width:100%; height:600px;"></div>
+                                                        <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9bc86d56cd2699acaa4b709fe9368c9b"></script>
+                                                        <script>
+                                                            var container = document.getElementById('map');
+                                                            var options = {
+                                                                center: new kakao.maps.LatLng(36, 128),  // 중심좌표
+                                                                level: 13    // 확대 레벨
+                                                            };
+
+                                                            var map = new kakao.maps.Map(container, options);
+
+                                                        </script>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- MAP CHART Ends -->
                                         </div>
                                     </div>
                                 </div>

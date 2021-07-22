@@ -1,3 +1,4 @@
+# Jupyter Notebook 수질 데이터 전처리에 사용하는 함수를 모듈로 만듦
 import pandas as pd
 import numpy as np
 

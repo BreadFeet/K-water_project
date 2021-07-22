@@ -27,6 +27,11 @@ def chart1s(request):
     return HttpResponse(json.dumps(result), content_type='application/json')
 
 def chart2s(request):
-    loc = request.GET['loc']
-    result = healthAnal.locHealthQual(loc)
+    fx = request.GET['fx']
+    if fx == '1':
+        loc = request.GET['param']
+        result = healthAnal.locHealthQual(loc)
+    elif fx == '2':
+        year = int(request.GET['param'])         # 문자열 -> int
+        result = healthAnal.healthMap(year)
     return HttpResponse(json.dumps(result), content_type='application/json')

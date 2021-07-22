@@ -185,19 +185,51 @@
                             </div>
                             <div class="pcoded-navigatio-lavel" data-i18n="nav.category.navigation">Main</div>
                             <ul class="pcoded-item pcoded-left-item">
-                                <li class="active">
-                                    <a href="{% url 'chart1' %}">
-                                        <span class="pcoded-micon"><i class="ti-home"></i><b>D</b></span>
-                                        <span class="pcoded-mtext" data-i18n="nav.dash.main">지역별 수질 정보</span>
+                                <li class="pcoded-hasmenu">
+                                    <a href="javascript:void(0)">
+                                        <span class="pcoded-micon"><i class="ti-bar-chart"></i></span>
+                                        <span class="pcoded-mtext"  data-i18n="nav.basic-components.main"><strong>수질 데이터 분석</strong></span>
                                         <span class="pcoded-mcaret"></span>
                                     </a>
+                                     <ul class="pcoded-submenu">
+                                        <li class=" ">
+                                            <a href="#">
+                                                <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                                <span class="pcoded-mtext" data-i18n="nav.basic-components.alert">분석 방법</span>
+                                                <span class="pcoded-mcaret"></span>
+                                            </a>
+                                        </li>
+                                        <li class=" ">
+                                            <a href="{% url 'chart1' %}">
+                                                <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                                <span class="pcoded-mtext" data-i18n="nav.basic-components.breadcrumbs">지역별 수질 차트</span>
+                                                <span class="pcoded-mcaret"></span>
+                                            </a>
+                                        </li>
+                                    </ul>
                                 </li>
-                                <li class="active">
-                                    <a href="{% url 'chart2' %}">
-                                        <span class="pcoded-micon"><i class="ti-home"></i><b>D</b></span>
-                                        <span class="pcoded-mtext" data-i18n="nav.dash.main">지역별 건강 정보</span>
+                                <li class="pcoded-hasmenu">
+                                    <a href="javascript:void(0)">
+                                        <span class="pcoded-micon"><i class="ti-pie-chart"></i></span>
+                                        <span class="pcoded-mtext"  data-i18n="nav.basic-components.main"><strong>건강지표 데이터 분석</strong></span>
                                         <span class="pcoded-mcaret"></span>
                                     </a>
+                                     <ul class="pcoded-submenu">
+                                        <li class=" ">
+                                            <a href="#">
+                                                <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                                <span class="pcoded-mtext" data-i18n="nav.basic-components.alert">분석 방법</span>
+                                                <span class="pcoded-mcaret"></span>
+                                            </a>
+                                        </li>
+                                        <li class=" ">
+                                            <a href="{% url 'chart2' %}">
+                                                <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                                <span class="pcoded-mtext" data-i18n="nav.basic-components.breadcrumbs">지역별 건강지표 차트</span>
+                                                <span class="pcoded-mcaret"></span>
+                                            </a>
+                                        </li>
+                                    </ul>
                                 </li>
                                 <li class="active">
                                     <a href="{% url 'chart3' %}">
@@ -218,7 +250,8 @@
                                 </li>
                             </ul>
 
-                           <div class="pcoded-navigatio-lavel" data-i18n="nav.category.forms">Chart &amp; Maps</div>
+                            <!-- Additional Menu Starts -->
+                            <!--<div class="pcoded-navigatio-lavel" data-i18n="nav.category.forms">Chart &amp; Maps</div>
                             <ul class="pcoded-item pcoded-left-item">
                                 <li>
                                     <a href="{% url 'chart1' %}">
@@ -264,8 +297,8 @@
                                         </li>
                                     </ul>
                                 </li>
-
-                            </ul>
+                            </ul>-->
+                            <!-- Additional Menu Ends -->
 
                         </div>
                     </nav>

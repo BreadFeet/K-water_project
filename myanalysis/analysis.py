@@ -6,6 +6,8 @@ water = pd.read_excel(DATA_DIRS[0] + '/preprocessed/water.xlsx', index_col=0)
 #print(water)
 hth = pd.read_excel(DATA_DIRS[0] + '/preprocessed/health.xlsx', index_col=0)
 #print(hth)
+map = pd.read_excel(DATA_DIRS[0] + '/preprocessed/loc.xlsx', index_col=0)
+#print(map)
 
 
 class waterAnal:
@@ -47,8 +49,59 @@ class healthAnal:
 
         result = {
             'loc': loc,
-            'data': data
+            'data': data,
+            'fx': 1
         }
+
+        #print(result)
+        return result
+
+
+    def healthMap(year):    # year: int
+        # 해당 year의 모든 시도 건강 데이터 추출
+        yr_hth = hth[hth['연도'] == year]
+        # yr_hth에서 지역은 index로 만들고, 연도는 drop
+        yr_hth.set_index('지역', inplace=True)
+        yr_hth.drop('연도', axis=1, inplace=True)
+
+
+        # 지역(시도)마다 인포윈도우에 띄울 string을 담은 list 만들기----------------------------------------------
+        contents = []
+
+        for idx in yr_hth.index:
+            sr = yr_hth.loc[idx]
+
+            string = '<div style="padding:7px; width:150px; height:220px;"><b>' + idx + '</b><br>'  # Kakao Map에 바로 사용할 수 있는 형식: <div style="padding:5px;">Hello World!<br></div>'
+            for s in zip(sr.index, sr.values):
+                # print(type(s[0]), type(s[1]))      # str, numpy.float64
+                string += s[0] + ': ' + str(s[1]) + '<br>'
+            string += '<div>'
+            contents.append(string)
+
+        # 지역 & 인포윈도의 string으로 dataframe 만들기
+        info = pd.DataFrame({'인포윈도우': contents}, index=yr_hth.index)
+
+
+        # 17개 시도의 위도, 경도 데이터 추출-----------------------------------------------------------------------
+        original = ['서울특별시', '부산광역시', '대구광역시', '인천광역시', '광주광역시', '대전광역시', '울산광역시', '세종특별자치시',
+                    '경기도', '강원도', '충청북도', '충청남도', '전라북도', '전라남도', '경상북도', '경상남도', '제주특별자치도']
+        ct = ['서울특별시', '부산광역시', '대구광역시', '인천광역시', '광주광역시', '대전광역시', '울산광역시', '세종특별자치시',
+              '수원시', '원주시', '청주시', '천안시', '전주시', '광주시', '안동시', '창원시', '제주시']
+        map1 = map.set_index('지역')
+        #map2 = map.loc[ct]   # ct에 해당하는 index를 뽑으면 17개가 맞는지 확인
+        #print(len(map2))
+
+        result = []
+        for o, c in zip(original, ct):
+            if (year in [2008, 2009, 2010, 2011, 2017, 2018, 2019]) & (o == '세종특별자치시'):
+                continue
+            dic = dict()
+            dic['title'] = o
+            dic['lat'] = map1.loc[c, '위도']
+            dic['lng'] = map1.loc[c, '경도']
+            dic['content'] = info.loc[o, '인포윈도우']
+            result.append(dic)
+        # 여기서는 데이터 전송을 위해서 json으로 만들고, chart2 페이지에서는 positions에 필요한 형태의 json으로 다시 만들어야 함
 
         #print(result)
         return result
@@ -56,4 +109,5 @@ class healthAnal:
 
 if __name__ == '__main__':
     #waterAnal.locWaterQual('서울특별시')
-    healthAnal.locHealthQual('제주도')
+    #healthAnal.locHealthQual('제주도')
+    healthAnal.healthMap(2015)
