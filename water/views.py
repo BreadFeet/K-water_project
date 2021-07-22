@@ -8,8 +8,11 @@ from myanalysis.analysis import waterAnal, healthAnal
 def main(request):
     return render(request, 'main.html')
 
-def chart1(request):
-    return render(request, 'chart1.html')
+def chart1_1(request):
+    return render(request, 'chart1_1.html')
+
+def chart1_2(request):
+    return render(request, 'chart1_2.html')
 
 def chart2(request):
     return render(request, 'chart2.html')

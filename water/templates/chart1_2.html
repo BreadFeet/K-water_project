@@ -1,0 +1,120 @@
+{% extends 'home.html' %}
+{% load static %}
+{% block content %}
+                    <div class="pcoded-content">
+                        <div class="pcoded-inner-content">
+
+                            <div class="main-body">
+                                <div class="page-wrapper">
+                                    <!-- Page-header start -->
+                                    <div class="page-header card">
+                                        <div class="row align-items-end">
+                                            <div class="col-lg-12">
+                                                <div class="page-header-title">
+                                                    <i class="icofont icofont-chart-bar-graph bg-c-blue"></i>
+                                                    <div class="d-inline">
+                                                        <h4>음용수로서의 수돗물의 수질 지표</h4>
+                                                        <span>• 수돗물을 먹는물로 사용하기 위해 확인하는 지표로서 <b>잔류염소, 아연, 철, 망간, 탁도</b>를 비교하였습니다.<br>
+                                                              • 철과 망간은 극미량 포함되어 크게 변별력이 없고, 잔류염소에서 가장 큰 편차를 보였습니다.<br>
+                                                              • 잔류염소와 그 외 물질들 간의 값의 크기 차이가 커서 그래프 안에 그리기에는 적합하지 않습니다.</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Page-header end -->
+
+                                    <div class="page-body">
+                                        <div class="row">
+                                            <!-- SITE VISIT CHART start -->
+                                            <div class="col-md-12 col-lg-6">
+                                                <div class="card">
+                                                    <div class="card-header">
+                                                        <h5>서울 - 경기도</h5>
+                                                        <span>서울과 가장 가까운 경기도의 물은 잔류염소 농도 면에서 차이가 큰 것을 볼 수 있습니다.</span>
+                                                    </div>
+                                                    <div class="card-block">
+                                                        <div><img src="{% static 'assets/images/seoul_gg.png' %}" style="width:400px;"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- SITE VISIT CHART Ends -->
+                                            <!-- Bar Chart start -->
+                                            <div class="col-md-12 col-lg-6">
+                                                <div class="card">
+                                                    <div class="card-header">
+                                                        <h5>서울 - 전라남도</h5>
+                                                        <span>서울의 결과는 전라남도와 가장 유사하게 나왔습니다.</span>
+                                                    </div>
+                                                    <div class="card-block">
+                                                        <div><img src="{% static 'assets/images/seoul_jn.png' %}" style="width:400px;"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- Bar Chart Ends -->
+                                            <!-- LINE CHART start -->
+                                            <div class="col-md-12 col-lg-6">
+                                                <div class="card">
+                                                    <div class="card-header">
+                                                        <h5>경기도 - 충청북도</h5>
+                                                        <span>경기도는 인접한 충청북도와 유사한 결과가 나왔습니다.</span>
+                                                    </div>
+                                                    <div class="card-block">
+                                                        <div><img src="{% static 'assets/images/gg_cb.png' %}" style="width:400px;"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- LINE CHART Ends -->
+                                            <!-- Donut chart start -->
+                                            <div class="col-md-12 col-lg-6">
+                                                <div class="card">
+                                                    <div class="card-header">
+                                                        <h5>경기도 - 충청남도</h5>
+                                                        <span>경기도는 충청북도와 마찬가지로, 인접한 충청남도와도 비슷한 결과를 보였습니다.</span>
+                                                    </div>
+                                                    <div class="card-block">
+                                                        <div><img src="{% static 'assets/images/gg_cn.png' %}" style="width:400px;"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- Donut chart Ends -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="styleSelector">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+<!-- Required Jquery -->
+<script type="text/javascript" src="{% static 'assets/js/jquery/jquery.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'assets/js/jquery-ui/jquery-ui.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'assets/js/popper.js/popper.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'assets/js/bootstrap/js/bootstrap.min.js' %}"></script>
+<!-- jquery slimscroll js -->
+<script type="text/javascript" src="{% static 'assets/js/jquery-slimscroll/jquery.slimscroll.js' %}"></script>
+<!-- modernizr js -->
+<script type="text/javascript" src="{% static 'assets/js/modernizr/modernizr.js' %}"></script>
+<script type="text/javascript" src="{% static 'assets/js/modernizr/css-scrollbars.js' %}"></script>
+<!-- classie js -->
+<script type="text/javascript" src="{% static 'assets/js/classie/classie.js' %}"></script>
+<!-- Morris Chart js -->
+<script src="{% static 'assets/js/raphael/raphael.min.js' %}"></script>
+<script src="{% static 'assets/js/morris.js/morris.js' %}"></script>
+<!-- Custom js -->
+<script src="{% static 'assets/pages/chart/morris/morris-custom-chart.js' %}"></script>
+<script type="text/javascript" src="{% static 'assets/js/script.js' %}"></script>
+<script src="{% static 'assets/js/pcoded.min.js' %}"></script>
+<script src="{% static 'assets/js/demo-12.js' %}"></script>
+<script src="{% static 'assets/js/jquery.mCustomScrollbar.concat.min.js' %}"></script>
+</body>
+
+</html>
+{% endblock %}
