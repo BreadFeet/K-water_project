@@ -191,7 +191,7 @@
                                         <span class="pcoded-mtext"  data-i18n="nav.basic-components.main"><strong>수질 데이터 분석</strong></span>
                                         <span class="pcoded-mcaret"></span>
                                     </a>
-                                     <ul class="pcoded-submenu">
+                                    <ul class="pcoded-submenu">
                                         <li class=" ">
                                             <a href="#">
                                                 <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
@@ -213,7 +213,21 @@
                                                 <span class="pcoded-mcaret"></span>
                                             </a>
                                         </li>
+                                        <li class=" ">
+                                            <a href="{% url 'chart1_3' %}">
+                                                <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                                <span class="pcoded-mtext" data-i18n="nav.basic-components.breadcrumbs">기준치 비교 차트</span>
+                                                <span class="pcoded-mcaret"></span>
+                                            </a>
+                                        </li>
                                     </ul>
+                                </li>
+                                <li class="active">
+                                    <a href="{% url 'chart3' %}">
+                                        <span class="pcoded-micon"><i class="ti-home"></i><b>D</b></span>
+                                        <span class="pcoded-mtext" data-i18n="nav.dash.main">연도별 변화 양상</span>
+                                        <span class="pcoded-mcaret"></span>
+                                    </a>
                                 </li>
                                 <li class="pcoded-hasmenu">
                                     <a href="javascript:void(0)">
@@ -230,20 +244,20 @@
                                             </a>
                                         </li>
                                         <li class=" ">
-                                            <a href="{% url 'chart2' %}">
+                                            <a href="{% url 'chart2_1' %}">
                                                 <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                                                 <span class="pcoded-mtext" data-i18n="nav.basic-components.breadcrumbs">지역별 건강지표 차트</span>
                                                 <span class="pcoded-mcaret"></span>
                                             </a>
                                         </li>
+                                        <li class=" ">
+                                            <a href="{% url 'chart2_2' %}">
+                                                <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                                <span class="pcoded-mtext" data-i18n="nav.basic-components.breadcrumbs">연도별 변화 추이</span>
+                                                <span class="pcoded-mcaret"></span>
+                                            </a>
+                                        </li>
                                     </ul>
-                                </li>
-                                <li class="active">
-                                    <a href="{% url 'chart3' %}">
-                                        <span class="pcoded-micon"><i class="ti-home"></i><b>D</b></span>
-                                        <span class="pcoded-mtext" data-i18n="nav.dash.main">연도별 변화 양상</span>
-                                        <span class="pcoded-mcaret"></span>
-                                    </a>
                                 </li>
                             </ul>
                             <div class="pcoded-navigatio-lavel" data-i18n="nav.category.forms">Model</div>

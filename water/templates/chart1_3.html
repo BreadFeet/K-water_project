@@ -1,0 +1,144 @@
+{% extends 'home.html' %}
+{% load static %}
+{% block content %}
+                    <div class="pcoded-content">
+                        <div class="pcoded-inner-content">
+                            <!-- Main-body start -->
+                            <div class="main-body">
+                                <div class="page-wrapper">
+                                    <!-- Page-header start -->
+                                    <div class="page-header card">
+                                        <div class="row align-items-end">
+                                            <div class="col-lg-8">
+                                                <div class="page-header-title">
+                                                    <i class="icofont icofont-layout bg-c-blue"></i>
+                                                    <div class="d-inline">
+                                                        <h4>Bootstrap tabs</h4>
+                                                        <span>lorem ipsum dolor sit amet, consectetur adipisicing elit</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <div class="page-header-breadcrumb">
+                                                    <ul class="breadcrumb-title">
+                                                        <li class="breadcrumb-item">
+                                                            <a href="index.html">
+                                                                <i class="icofont icofont-home"></i>
+                                                            </a>
+                                                        </li>
+                                                        <li class="breadcrumb-item"><a href="#!">Basic Components</a>
+                                                        </li>
+                                                        <li class="breadcrumb-item"><a href="#!">Tabs</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Page-header end -->
+                                    
+                                    <!-- Page body start -->
+                                    <div class="page-body">
+                                        <div class="row">
+                                            <div class="col-sm-12">
+
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <!-- Material tab card start -->
+                                                <div class="card">
+                                                    <div class="card-header">
+                                                        <h5>Material tab</h5>
+                                                        <div class="card-header-right">    <ul class="list-unstyled card-option">        <li><i class="icofont icofont-simple-left "></i></li>        <li><i class="icofont icofont-maximize full-card"></i></li>        <li><i class="icofont icofont-minus minimize-card"></i></li>        <li><i class="icofont icofont-refresh reload-card"></i></li>        <li><i class="icofont icofont-error close-card"></i></li>    </ul></div>
+                                                    </div>
+                                                    <div class="card-block">
+                                                        <!-- Row start -->
+                                                        <div class="row">
+                                                            <div class="col-lg-12 col-xl-6">
+                                                                <div class="sub-title">Chart</div>
+                                                                <!-- Tab panes -->
+                                                                <div class="tab-content tabs-right-content card-block">
+                                                                    <div class="tab-pane active" id="home6" role="tabpanel">
+                                                                        <p class="m-0">1. This is Photoshop's version of Lorem IpThis is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean mas Cum sociis natoque penatibus et magnis dis.....</p>
+                                                                        <div><img src="{% static 'assets/images/underground_no3.png' %}"></div>
+                                                                        <p> 설명</p>
+                                                                    </div>
+                                                                    <div class="tab-pane" id="profile6" role="tabpanel">
+                                                                        <p class="m-0">2.Cras consequat in enim ut efficitur. Nulla posuere elit quis auctor interdum praesent sit amet nulla vel enim amet. Donec convallis tellus neque, et imperdiet felis amet.</p>
+                                                                        <img src="{% static 'assets/images/underground_boxplot.png' %}">
+                                                                    </div>
+                                                                    <div class="tab-pane" id="messages6" role="tabpanel">
+                                                                        <p class="m-0">3. This is Photoshop's version of Lorem IpThis is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean mas Cum sociis natoque penatibus et magnis dis.....</p>
+                                                                        <img src="{% static 'assets/images/underground_sorted.png' %}">
+                                                                    </div>
+                                                                    <div class="tab-pane" id="settings6" role="tabpanel">
+                                                                        <p class="m-0">4.Cras consequat in enim ut efficitur. Nulla posuere elit quis auctor interdum praesent sit amet nulla vel enim amet. Donec convallis tellus neque, et imperdiet felis amet.</p>
+                                                                        <img src="{% static 'assets/images/lollipop_plot.png' %}">
+                                                                    </div>
+                                                                </div>
+                                                                <!-- Nav tabs -->
+                                                                <ul class="nav nav-tabs md-tabs tabs-right b-none" role="tablist">
+                                                                    <li class="nav-item">
+                                                                        <a class="nav-link active" data-toggle="tab" href="#home6" role="tab">Bar Plot</a>
+                                                                        <div class="slide"></div>
+                                                                    </li>
+                                                                    <li class="nav-item">
+                                                                        <a class="nav-link" data-toggle="tab" href="#profile6" role="tab">Box Plot</a>
+                                                                        <div class="slide"></div>
+                                                                    </li>
+                                                                    <li class="nav-item">
+                                                                        <a class="nav-link" data-toggle="tab" href="#messages6" role="tab">Bar Plot</a>
+                                                                        <div class="slide"></div>
+                                                                    </li>
+                                                                    <li class="nav-item">
+                                                                        <a class="nav-link" data-toggle="tab" href="#settings6" role="tab">Lollipop Plot</a>
+                                                                        <div class="slide"></div>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                        <!-- Row end -->
+                                                    </div>
+                                                </div>
+                                                <!-- Material tab card end -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Page body end -->
+                                </div>
+                            </div>
+                            <!-- Main-body end -->
+
+                            <div id="styleSelector">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+<!-- Required Jquery -->
+<script type="text/javascript" src="{% static 'assets/js/jquery/jquery.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'assets/js/jquery-ui/jquery-ui.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'assets/js/popper.js/popper.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'assets/js/bootstrap/js/bootstrap.min.js' %}"></script>
+<!-- jquery slimscroll js -->
+<script type="text/javascript" src="{% static 'assets/js/jquery-slimscroll/jquery.slimscroll.js' %}"></script>
+<!-- modernizr js -->
+<script type="text/javascript" src="{% static 'assets/js/modernizr/modernizr.js' %}"></script>
+<script type="text/javascript" src="{% static 'assets/js/modernizr/css-scrollbars.js' %}"></script>
+<!-- classie js -->
+<script type="text/javascript" src="{% static 'assets/js/classie/classie.js' %}"></script>
+<!-- Custom js -->
+<script type="text/javascript" src="{% static 'assets/js/script.js' %}"></script>
+<script src="{% static 'assets/js/pcoded.min.js' %}"></script>
+<script src="{% static 'assets/js/jquery.mCustomScrollbar.concat.min.js' %}"></script>
+<script src="{% static 'assets/js/demo-12.js' %}"></script>
+</body>
+
+</html>
+{% endblock %}

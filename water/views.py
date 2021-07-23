@@ -14,8 +14,14 @@ def chart1_1(request):
 def chart1_2(request):
     return render(request, 'chart1_2.html')
 
-def chart2(request):
-    return render(request, 'chart2.html')
+def chart1_3(request):
+    return render(request, 'chart1_3.html')
+
+def chart2_1(request):
+    return render(request, 'chart2_1.html')
+
+def chart2_2(request):
+    return render(request, 'chart2_2.html')
 
 def chart3(request):
     return render(request, 'chart3.html')
