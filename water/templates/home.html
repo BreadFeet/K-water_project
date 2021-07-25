@@ -193,7 +193,7 @@
                                     </a>
                                     <ul class="pcoded-submenu">
                                         <li class=" ">
-                                            <a href="#">
+                                            <a href="{% url 'info1' %}">
                                                 <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                                                 <span class="pcoded-mtext" data-i18n="nav.basic-components.alert">분석 방법</span>
                                                 <span class="pcoded-mcaret"></span>
@@ -209,7 +209,7 @@
                                         <li class=" ">
                                             <a href="{% url 'chart1_2' %}">
                                                 <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                <span class="pcoded-mtext" data-i18n="nav.basic-components.breadcrumbs">먹는물 수질 비교</span>
+                                                <span class="pcoded-mtext" data-i18n="nav.basic-components.breadcrumbs">먹는물 지표 비교</span>
                                                 <span class="pcoded-mcaret"></span>
                                             </a>
                                         </li>
@@ -221,13 +221,6 @@
                                             </a>
                                         </li>
                                     </ul>
-                                </li>
-                                <li class="active">
-                                    <a href="{% url 'chart3' %}">
-                                        <span class="pcoded-micon"><i class="ti-home"></i><b>D</b></span>
-                                        <span class="pcoded-mtext" data-i18n="nav.dash.main">연도별 변화 양상</span>
-                                        <span class="pcoded-mcaret"></span>
-                                    </a>
                                 </li>
                                 <li class="pcoded-hasmenu">
                                     <a href="javascript:void(0)">
@@ -262,12 +255,42 @@
                             </ul>
                             <div class="pcoded-navigatio-lavel" data-i18n="nav.category.forms">Model</div>
                             <ul class="pcoded-item pcoded-left-item">
-                                <li class="active">
-                                    <a href="{% url 'ml' %}">
-                                        <span class="pcoded-micon"><i class="ti-layers"></i><b>D</b></span>
-                                        <span class="pcoded-mtext" data-i18n="nav.dash.main">수질과 건강</span>
+                                <li class="pcoded-hasmenu">
+                                    <a href="javascript:void(0)">
+                                        <span class="pcoded-micon"><i class="ti-mouse"></i></span>
+                                        <span class="pcoded-mtext"  data-i18n="nav.basic-components.main"><strong>머신러닝 분석</strong></span>
                                         <span class="pcoded-mcaret"></span>
                                     </a>
+                                    <ul class="pcoded-submenu">
+                                        <li class=" ">
+                                            <a href="#">
+                                                <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                                <span class="pcoded-mtext" data-i18n="nav.basic-components.alert">분석 방법</span>
+                                                <span class="pcoded-mcaret"></span>
+                                            </a>
+                                        </li>
+                                        <li class=" ">
+                                            <a href="{% url 'chart2_1' %}">
+                                                <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                                <span class="pcoded-mtext" data-i18n="nav.basic-components.breadcrumbs">Linear Regression</span>
+                                                <span class="pcoded-mcaret"></span>
+                                            </a>
+                                        </li>
+                                        <li class=" ">
+                                            <a href="{% url 'chart2_2' %}">
+                                                <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                                <span class="pcoded-mtext" data-i18n="nav.basic-components.breadcrumbs">Logistic Resression</span>
+                                                <span class="pcoded-mcaret"></span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="active">
+                                     <a href="{% url 'chart3' %}">
+                                         <span class="pcoded-micon"><i class="ti-layout-grid2-alt"></i><b>D</b></span>
+                                         <span class="pcoded-mtext" data-i18n="nav.dash.main">프로젝트를 마치며</span>
+                                         <span class="pcoded-mcaret"></span>
+                                     </a>
                                 </li>
                             </ul>
 

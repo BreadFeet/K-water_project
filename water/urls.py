@@ -26,13 +26,13 @@ urlpatterns = [
     path('map', TemplateView.as_view(template_name='map-google.html'), name='map'),
     path('sample', TemplateView.as_view(template_name='sample-page.html'), name='sample'),
 
+    path('info1', views.info1, name='info1'),
     path('chart1_1', views.chart1_1, name='chart1_1'),
     path('chart1_2', views.chart1_2, name='chart1_2'),
     path('chart1_3', views.chart1_3, name='chart1_3'),
     path('chart2_1', views.chart2_1, name='chart2_1'),
     path('chart2_2', views.chart2_2, name='chart2_2'),
     path('chart3', views.chart3, name='chart3'),
-    path('ml', views.ml, name='ml'),
 
     path('chart1s', views.chart1s, name='chart1s'),
     path('chart2s', views.chart2s, name='chart2s'),
