@@ -1,0 +1,96 @@
+{% extends 'home.html' %}
+{% load static %}
+{% block content %}
+                    <div class="pcoded-content">
+                        <div class="pcoded-inner-content">
+                            <div class="main-body">
+                                <div class="page-wrapper">
+                                    <!-- Page-header start -->
+                                    <div class="page-header card">
+                                        <div class="row align-items-end">
+                                            <div class="col-lg-8">
+                                                <div class="page-header-title">
+                                                    <i class="icofont icofont-layout bg-c-blue"></i>
+                                                    <div class="d-inline">
+                                                        <h4>Logistic Regression & K-means Clustering</h4>
+                                                        <span>수질 데이터로 건강지표 예측하기</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Page-header end -->
+
+                                    <!-- Page-body start -->
+                                    <div class="page-body">
+                                    <!-- Row start -->
+                                    <div class="row">
+                                        <!-- Color Open Accordion start -->
+                                        <div class="col-lg-12">
+                                            <div class="card">
+                                                <div class="card-header">
+                                                    <h5 class="card-header-text">Logistic Regression Analysis</h5>
+                                                </div>
+                                                <div class="card-block accordion-block color-accordion-block">
+                                                    <div class="color-accordion" id="color-accordion">
+                                                        <a class="accordion-msg b-none">1. Logistic Regression [클릭]</a>
+                                                        <div class="accordion-desc" style="font-family:'MaruBuri-Regular';">
+                                                            <h5>로지스틱 회귀 분석</h5>
+                                                            <br>
+                                                            앞서 선형 회귀 분석 모델에서 보았던 <b>스트레스 인지율</b>과 <b>우울감 경험률</b>에 대해 로지스틱 회귀 분석으로 예측을 진행하기 위해서, 두 항목에 대해 Category Binning을 진행하였습니다. 전체 측정치를 3구간(낮음, 중간, 높음)으로 나누어서 <b>스트레스 인지 정도, 우울감 인지 정도</b>로 컬럼명을 지정한 뒤 분석을 진행하였습니다.<br>
+                                                            <img src="{% static 'assets/images/logistic.png' %}" style="width:700px;"><br>
+                                                            참고로, 표에서 f1 score는 각 카테고리(낮음, 보통, 높음)의 f1 score 중 가장 큰 값을 기재하였습니다. 그 중 제일 좋은 결과를 낸 조합은 앞선 선형 휘귀 분석과 마찬가지로 <b>스트레스 인지정도와 8가지 수질 항목</b>이었습니다. 이 결과는 앞선 다중 선형 회귀 분석 결과보다는 개선되어 보이지만 아직도 향상될 가능성이 있어서 이후 Clustering과 함께 사용하는 분석하였습니다.<br>
+                                                            <br>
+                                                            <br>
+                                                        </div>
+                                                        <a class="accordion-msg bg-dark-primary b-none">2. K-means Clustering & Logistic Regression [클릭]</a>
+                                                            <div class="accordion-desc" style="font-family:'MaruBuri-Regular';">
+                                                                <p>
+                                                                    Logistic Regression의 결과를 향상시키던 방법을 찾던 중에, K-means Clustering을 사용한 뒤 Logistic Regression을 하면 Mean Accuracy 향상될 수 있다는 것을 알게되어 이 방법을 사용하였습니다.
+                                                                    데이터는 Logistic Regression만 사용한 앞선 결과에서 가장 좋은 결과를 얻은 <b>스트레스 인지정도와 8가지 수질 항목</b>을 사용하였습니다.
+                                                                    먼저 적절한 클러스터 개수를 구하기 위해서, 클러스터 개수에 따른 Inertia를 값을 구하였습니다.<br>
+                                                                    <img src="{% static 'assets/images/inertia_selected.png' %}"style="width: 600px; padding:40px;"><br>
+                                                                    대략 클러스터 개수가 5~10인 근처에서 Elbow가 있는 것으로 예상되지만 정확하게 구별되지 않아서 Grid Search를 통해서 최적의 클러스터 개수가 14인 것을 확인하였습니다. 그러나 이 때의 Mean Accuracy나 f1 score가 예상과는 달리 향상되지 않았고 다소 감소한 결과가 나왔습니다.
+                                                                    그 외 앞서 Logistic Regression에서 사용한 여러가지 X, y 조합을 모두 사용해보았지만, Clustering을 함께 사용했다고 해서 그 값이 향상되진 않았습니다.
+                                                                    따라서 <b>결론적으로 Logistic Regression 단독으로 사용한 결과가 가장 좋게 나왔으며</b> 분류 결과는 아래와 같습니다.<br>
+                                                                    <img src="{% static 'assets/images/classification_report.png' %}" style="width:600px">
+                                                                </p>
+                                                            </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- Color Open Accordion ends -->
+                                            </div>
+                                            <!-- Row end -->
+                                        </div>
+                                        <!-- Page-body end -->
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+<!-- Required Jquery -->
+<script type="text/javascript" src="{% static 'assets/js/jquery/jquery.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'assets/js/jquery-ui/jquery-ui.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'assets/js/popper.js/popper.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'assets/js/bootstrap/js/bootstrap.min.js' %}"></script>
+<!-- jquery slimscroll js -->
+<script type="text/javascript" src="{% static 'assets/js/jquery-slimscroll/jquery.slimscroll.js' %}"></script>
+<!-- modernizr js -->
+<script type="text/javascript" src="{% static 'assets/js/modernizr/modernizr.js' %}"></script>
+<script type="text/javascript" src="{% static 'assets/js/modernizr/css-scrollbars.js' %}"></script>
+<!-- classie js -->
+<script type="text/javascript" src="{% static 'assets/js/classie/classie.js' %}"></script>
+<!-- Accordion js -->
+<script type="text/javascript" src="{% static 'assets/pages/accordion/accordion.js' %}"></script>
+<!-- Custom js -->
+<script type="text/javascript" src="{% static 'assets/js/script.js' %}"></script>
+<script src="{% static 'assets/js/pcoded.min.js' %}"></script>
+<script src="{% static 'assets/js/jquery.mCustomScrollbar.concat.min.js' %}"></script>
+<script src="{% static 'assets/js/demo-12.js' %}"></script>
+</body>
+</html>
+{% endblock %}

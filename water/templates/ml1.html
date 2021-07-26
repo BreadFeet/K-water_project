@@ -1,0 +1,97 @@
+{% extends 'home.html' %}
+{% load static %}
+{% block content %}
+                    <div class="pcoded-content">
+                        <div class="pcoded-inner-content">
+                            <div class="main-body">
+                                <div class="page-wrapper">
+                                    <!-- Page-header start -->
+                                    <div class="page-header card">
+                                        <div class="row align-items-end">
+                                            <div class="col-lg-8">
+                                                <div class="page-header-title">
+                                                    <i class="icofont icofont-layout bg-c-blue"></i>
+                                                    <div class="d-inline">
+                                                        <h4>Linear Regression & Polynomial Regression</h4>
+                                                        <span>수질 데이터로 건강지표 예측하기</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Page-header end -->
+
+                                    <!-- Page-body start -->
+                                    <div class="page-body">
+                                    <!-- Row start -->
+                                    <div class="row">
+                                        <!-- Color Open Accordion start -->
+                                        <div class="col-lg-12">
+                                            <div class="card">
+                                                <div class="card-header">
+                                                    <h5 class="card-header-text">Linear Regression Analysis</h5>
+                                                </div>
+                                                <div class="card-block accordion-block color-accordion-block">
+                                                    <div class="color-accordion" id="color-accordion">
+                                                        <a class="accordion-msg b-none">1. Correlation & Multiple Linear Regression [클릭]</a>
+                                                        <div class="accordion-desc" style="font-family:'MaruBuri-Regular';">
+                                                            <h5>상관관계 분석과 다중 선형 회귀 분석</h5>
+                                                            <br>
+                                                            수질검사 항목 55가지와 건강관련요인 6가지 항목 중 어느 항목을 feature와 target으로 사용할지 결정하기 위해서 <b>Pearson Correlation</b>을 확인한 뒤 Heatmap으로 표현하였습니다.<br>
+                                                            <br><br>
+                                                            <img src="{% static 'assets/images/heatmap.png' %}" style="width:830px;">
+                                                            <br><br>
+                                                            전반적으로 0.5이상을 넘는 높은 상관관계를 보이는 값은 없었지만, 이 중 <b>스트레스 인지율 - 디브로모클로로로메탄, 우울감 경험률 - 알루미늄</b> 등 상관관계가 비교적 높게 나온 값들의 유효성을 판단하기 위해 p-value를 확인한 결과 0.05보다 매우 작은 값을 얻었습니다. Heapmap에서 파란색이 많이 보이는 <b>스트레스 인지율과 관련 수질 항목</b>간의 Multiple linear Regression을 먼저 진행한 결과 R-squared와 Mean Squared Error의 값은 아래와 같았습니다.<br>
+                                                            <img src="{% static 'assets/images/linear1.png' %}"style="width:700px;"><br>
+                                                            이 MLR 모델로 예측한 값과 실제 값의 차이를 그래프로 그려서 확인해보니 생각보다 그 차이가 큰 것을 볼 수 있었습니다.<br>
+                                                            <img src="{% static 'assets/images/distribution_plot.png' %}"style="padding:40px;"><br>
+                                                            따라서 Heatmap 결과를 기반으로 여러 조합의 X, y로 MLR 모델에 학습시킨 결과는 아래와 같습니다. 스트레스 인지율과 우울감 경험률 항목에서, 상관계수가 더 높았던 수질 정보만으로 feature 개수를 줄여서 MLR 모델을 학습시키더라도 크게 개선된 값을 얻지 못하였습니다.<br>
+                                                            <img src="{% static 'assets/images/linear2.png' %}"style="width: 700px; padding:30px;"><br>
+                                                        </div>
+                                                        <a class="accordion-msg bg-dark-primary b-none">2. Polynomial Regression with Multiple Dimension [클릭]</a>
+                                                            <div class="accordion-desc" style="font-family:'MaruBuri-Regular';">
+                                                                <h5>다항 회귀 분석</h5>
+                                                                <p>
+                                                                    MLR 모델에서 R-squared와 MSE 결과가 좋았던 <b>스트레스 인지율과 8개의 수질 항목, 연간 보건기관 이용률과 5개 항목</b>에 대해서 Polynomial Regression을 진행하여서 예측모델이 개선되는지 확인하고자 하였습니다. 그 결과 얻은 값은 MLR 모델보다 개선되지 않고 R-squared 값이 (-)가 되는 것으로 보아 Polynomial Regression 모델에서 <b>overfitting</b>이 일어났다고 할 수 있습니다.<br>
+                                                                    <img src="{% static 'assets/images/polynomial.png' %}"style="width: 700px; padding:30px;"><br>
+
+                                                                </p>
+                                                            </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- Color Open Accordion ends -->
+                                            </div>
+                                            <!-- Row end -->
+                                        </div>
+                                        <!-- Page-body end -->
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+<!-- Required Jquery -->
+<script type="text/javascript" src="{% static 'assets/js/jquery/jquery.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'assets/js/jquery-ui/jquery-ui.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'assets/js/popper.js/popper.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'assets/js/bootstrap/js/bootstrap.min.js' %}"></script>
+<!-- jquery slimscroll js -->
+<script type="text/javascript" src="{% static 'assets/js/jquery-slimscroll/jquery.slimscroll.js' %}"></script>
+<!-- modernizr js -->
+<script type="text/javascript" src="{% static 'assets/js/modernizr/modernizr.js' %}"></script>
+<script type="text/javascript" src="{% static 'assets/js/modernizr/css-scrollbars.js' %}"></script>
+<!-- classie js -->
+<script type="text/javascript" src="{% static 'assets/js/classie/classie.js' %}"></script>
+<!-- Accordion js -->
+<script type="text/javascript" src="{% static 'assets/pages/accordion/accordion.js' %}"></script>
+<!-- Custom js -->
+<script type="text/javascript" src="{% static 'assets/js/script.js' %}"></script>
+<script src="{% static 'assets/js/pcoded.min.js' %}"></script>
+<script src="{% static 'assets/js/jquery.mCustomScrollbar.concat.min.js' %}"></script>
+<script src="{% static 'assets/js/demo-12.js' %}"></script>
+</body>
+</html>
+{% endblock %}

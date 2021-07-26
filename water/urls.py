@@ -25,17 +25,23 @@ urlpatterns = [
     path('table', TemplateView.as_view(template_name='bs-basic-table.html'), name='table'),
     path('map', TemplateView.as_view(template_name='map-google.html'), name='map'),
     path('sample', TemplateView.as_view(template_name='sample-page.html'), name='sample'),
+    path('ml', TemplateView.as_view(template_name='ml.html'), name='ml'),
 
     path('info1', views.info1, name='info1'),
     path('chart1_1', views.chart1_1, name='chart1_1'),
+    path('chart1s', views.chart1s, name='chart1s'),
     path('chart1_2', views.chart1_2, name='chart1_2'),
     path('chart1_3', views.chart1_3, name='chart1_3'),
+
     path('info2', views.info2, name='info2'),
     path('chart2_1', views.chart2_1, name='chart2_1'),
+    path('chart2s', views.chart2s, name='chart2s'),
     path('chart2_2', views.chart2_2, name='chart2_2'),
+
+    path('info3', views.info3, name='info3'),
+    path('ml1', views.ml1, name='ml1'),
+    path('ml2', views.ml2, name='ml2'),
     path('chart3', views.chart3, name='chart3'),
 
-    path('chart1s', views.chart1s, name='chart1s'),
-    path('chart2s', views.chart2s, name='chart2s'),
     #path('chart3s', views.chart3s, name='chart3s'),
 ]
