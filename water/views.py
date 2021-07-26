@@ -20,6 +20,10 @@ def chart1_2(request):
 def chart1_3(request):
     return render(request, 'chart1_3.html')
 
+
+def info2(request):
+    return render(request, 'info2.html')
+
 def chart2_1(request):
     return render(request, 'chart2_1.html')
 
