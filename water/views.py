@@ -6,7 +6,7 @@ from myanalysis.analysis import waterAnal, healthAnal
 
 # Create your views here.
 def main(request):
-    return render(request, 'chart3.html')
+    return render(request, 'main.html')
 
 def info1(request):
     return render(request, 'info1.html')
@@ -41,9 +41,8 @@ def ml2(request):
     return render(request, 'ml2.html')
 
 
-
-def chart3(request):
-    return render(request, 'chart3.html')
+def reflection(request):
+    return render(request, 'reflection.html')
 
 def ml(request):
     return render(request, 'ml.html')

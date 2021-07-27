@@ -41,7 +41,7 @@ urlpatterns = [
     path('info3', views.info3, name='info3'),
     path('ml1', views.ml1, name='ml1'),
     path('ml2', views.ml2, name='ml2'),
-    path('chart3', views.chart3, name='chart3'),
+    path('reflection', views.reflection, name='reflection'),
 
     #path('chart3s', views.chart3s, name='chart3s'),
 ]
