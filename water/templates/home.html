@@ -141,6 +141,15 @@
                                     </li>
                                     <li>
                                         <div class="media">
+                                            <img class="d-flex align-self-center img-radius" src="{% static 'assets/images/safety_m.png' %}" alt="Generic placeholder image">
+                                            <div class="media-body">
+                                                <h5 class="notification-user"><a href="https://jumin.mois.go.kr/">행정안전부</a></h5>
+                                                <p class="notification-msg">해당자료: 주민등록 인구통계</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="media">
                                             <img class="d-flex align-self-center img-radius" src="{% static 'assets/images/github.png' %}" alt="Generic placeholder image">
                                             <div class="media-body">
                                                 <h5 class="notification-user">김소리 Github</h5>
@@ -174,7 +183,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="pcoded-navigatio-lavel" data-i18n="nav.category.navigation">Main</div>
+                            <div class="pcoded-navigatio-lavel" data-i18n="nav.category.navigation">Data Analysis</div>
                             <ul class="pcoded-item pcoded-left-item">
                                 <li class="pcoded-hasmenu">
                                     <a href="javascript:void(0)">
@@ -284,57 +293,6 @@
                                      </a>
                                 </li>
                             </ul>
-
-                            <!-- Additional Menu Starts -->
-                            <!--<div class="pcoded-navigatio-lavel" data-i18n="nav.category.forms">Chart &amp; Maps</div>
-                            <ul class="pcoded-item pcoded-left-item">
-                                <li>
-                                    <a href="{% url 'chart1_1' %}">
-                                        <span class="pcoded-micon"><i class="ti-layers"></i><b>FC</b></span>
-                                        <span class="pcoded-mtext" data-i18n="nav.form-components.main">Chart</span>
-                                        <span class="pcoded-mcaret"></span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="map-google.html">
-                                        <span class="pcoded-micon"><i class="ti-layers"></i><b>FC</b></span>
-                                        <span class="pcoded-mtext" data-i18n="nav.form-components.main">Maps</span>
-                                        <span class="pcoded-mcaret"></span>
-                                    </a>
-                                </li>
-                                <li class="pcoded-hasmenu">
-                                    <a href="javascript:void(0)">
-                                        <span class="pcoded-micon"><i class="ti-layout-grid2-alt"></i></span>
-                                        <span class="pcoded-mtext"  data-i18n="nav.basic-components.main">Pages</span>
-                                        <span class="pcoded-mcaret"></span>
-                                    </a>
-                                    <ul class="pcoded-submenu">
-                                        <li class=" ">
-                                            <a href="auth-normal-sign-in.html">
-                                                <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                <span class="pcoded-mtext" data-i18n="nav.basic-components.alert">Login</span>
-                                                <span class="pcoded-mcaret"></span>
-                                            </a>
-                                        </li>
-                                        <li class=" ">
-                                            <a href="auth-sign-up.html">
-                                                <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                <span class="pcoded-mtext" data-i18n="nav.basic-components.breadcrumbs">Register</span>
-                                                <span class="pcoded-mcaret"></span>
-                                            </a>
-                                        </li>
-                                        <li class=" ">
-                                            <a href="sample-page.html">
-                                                <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                <span class="pcoded-mtext" data-i18n="nav.basic-components.breadcrumbs">Sample Page</span>
-                                                <span class="pcoded-mcaret"></span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>-->
-                            <!-- Additional Menu Ends -->
-
                         </div>
                     </nav>
                     {% block content %}

@@ -7,21 +7,17 @@
                             <!-- Main-body start -->
                             <div class="main-body">
                                 <div class="page-wrapper">
-                                    <!-- Page-header start -->
-                                    <div class="page-header card">
-                                        <div class="row align-items-end">
-                                            <div class="col-lg-8">
-                                                <div class="page-header-title">
-                                                    <i class="icofont icofont-layout bg-c-blue"></i>
-                                                    <div class="d-inline">
-                                                        <h4>수질과 건강 지표의 관계성 분석</h4>
-                                                        <span>정수장 수질 정보를 통해 지역사회 건강관련요인 분석 및 예측</span>
-                                                    </div>
-                                                </div>
+                                    <!-- Info-color Breadcrumb card start -->
+                                    <div class="card borderless-card" style="background-color:#3D9CDD; color:#fff;">
+                                        <div class="card-block">
+                                            <div class="breadcrumb-header">
+                                                <i class="icofont icofont-water-drop"></i> &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;<i class="icofont icofont-emo-slightly-smile"></i>
+                                                <h5>수질 데이터와 건강관련요인 데이터 분석</h5>
+                                                <span>정수장 수질 정보를 통해 지역사회 건강관련요인 분석 및 예측</span>
                                             </div>
                                         </div>
                                     </div>
-                                    <!-- Page-header end -->
+                                    <!-- Info-color Breadcrumb card end -->
 
                                     <!-- Page body start -->
                                     <div class="page-body">
@@ -56,10 +52,12 @@
                                                                 <!-- Tab panes -->
                                                                 <div class="tab-content card-block" style="font-family:'MaruBuri-Regular';">
                                                                     <div class="tab-pane active" id="home3" role="tabpanel">
+                                                                        <img src="{% static 'assets/images/water_purification.png' %}" style="width:700px;"><br><br>
                                                                         <p class="m-0">생활 용수의 수질이 건강에 미치는 영향을 확인하고자 하였습니다.
-                                                                            이미 병태생리가 분명하게 밝혀진 질환과 연관짓기 보다는, 다양한 환경요소가 영향을 미칠 수 있는 질환 또는 건강지표를 찾아서
+                                                                            이미 병태생리가 분명하게 밝혀진 질환과 연관짓기 보다는, 다양한 환경요소에 영향을 받아서 수질도 하나의 원인이 될 수 있을만한 건강지표 찾아서
                                                                             수질과의 연관성을 있을지 알아보고자 하였습니다. 특히 수질과 "삶의 질" 또는 "보건기관 이용률" 등이 상관성이 있고 예측도가
-                                                                            높다면 유의미할 것이라고 생각하여 데이터를 선정, 분석하였습니다.</p>
+                                                                            높다면 유의미할 것이라고 생각하여 데이터를 선정, 분석하였습니다.<br>
+                                                                            여기서 말하는 생활 용수는 수돗물(정수장)과 지하수(취수장)이며, 이에 해당하는 수질 데이터를 사용하였습니다.</p>
                                                                     </div>
                                                                     <div class="tab-pane" id="profile3" role="tabpanel">
                                                                         <img src="{% static 'assets/images/tools.PNG' %}" style="width: 830px; height:500px">
@@ -77,13 +75,14 @@
                                                                                        • 머신러닝 모델을 통해 수질 정보로서 건강 지표를 예측할 수 있는지 확인</p>
                                                                     </div>
                                                                     <div class="tab-pane" id="settings3" role="tabpanel">
-                                                                        <p class="lead m-t-0"><strong>1. 환경부 K-water 국가상수도정보시스템 상수도 정보 공개자료</strong></p>
+                                                                        <i class="ti-files"></i><h5>Main Data</h5><br>
+                                                                        <h6><strong>1. 환경부 K-water 국가상수도정보시스템 상수도 정보 공개자료 - 먹는물 수질검사자료(정수)</strong></h6>
                                                                         <p class="m-0">• 대장균, 일반세균, 불소, 염소이온 등 미생물과 화학물질 뿐만 아니라 경도, 냄새, 맛 등의 정보를 포함<br>
                                                                             • 매월 각 수도사업자에서 측정한 농도 데이터로 구성<br>
                                                                             • 건강지표 데이터에 맞추어 2008 ~ 2019년 총 12개년도 데이터를 spreadsheet으로 다운받아서 취합</p>
                                                                             <br>
                                                                             <br>
-                                                                        <p class="lead m-t-0"><strong>2. 질병관리청 지역사회 건강조사 - 지역사회 건강관련 요인 데이터베이스</strong></p>
+                                                                        <h6><strong>2. 질병관리청 지역사회 건강조사 - 지역사회 건강관련 요인 데이터베이스</strong></h6>
                                                                         <p class="m-0">• 자살, 타살, 각종 질환으로 인한 사망률 뿐만 아니라 삶의 질 지수, 스트레스 인지율, 보건기관 이용률 등의 다양한 건강 정보를 포함<br>
                                                                             • 질병관리청에서 2008년도부터 수행한 건강통계로, 2019년까지의 데이터가 공개되어 있음<br>
                                                                             • 질병관리청이 직접 수행한 조사결과가 아니며, 다른 부처에서 공개된 데이터를 수집하여 통계낸 값<br><br>
@@ -94,9 +93,20 @@
                                                                             &emsp; <b>우울감 경험률</b>: 최근 1년 동안 연속적으로 2주 이상 일상생활에 지장이 있을 정도의 슬픔이나 절망감을 경험한 사람/조사대상 응답자 X 100<br>
                                                                             &emsp; <b>주관적 구강건강이 나쁜 인구의 분</b>: 주관적 구강건강 수준이 "나쁨" 또는 "매우 나쁨"에 응답한 사람/조사대상 응답자 X 100<br>
                                                                             &emsp; <b>연간 보건기관 이용률</b>: 최근 1년(365일) 동안 보건기관(보건소, 보건의료원, 보건지소, 보건진료원)을 이용한 사람<br>
-                                                                        </p>
-
-                                                                        </p>
+                                                                        </p><br><br>
+                                                                        <i class="ti-files"></i><h5>Additional Data</h5><br>
+                                                                        <h6><strong>1. 환경부 K-water 국가상수도정보시스템 상수도 정보 공개자료 - 먹는물 수질검사자료(원수-취수장) - 지하수</strong></h6>
+                                                                        <p class="m-0">• 반기 마다 지하수 취수장을 가진 수도사업자에서 측정한 항목들의 농도 데이터</p>
+                                                                        <br><br>
+                                                                        <h6><strong>2. 환경부 K-water 국가상수도정보시스템 상수도 정보 공개자료 - 수질감시항목 - 라돈</strong></h6>
+                                                                        <p class="m-0">• 반기 마다 수도사업장에서 측정한 수돗물 내 라돈 농도 데이터</p>
+                                                                        <br><br>
+                                                                        <h6><strong>3. Time Genie 대한민국 위도, 경도 정보</strong></h6>
+                                                                        <p class="m-0">• 각 시도별 위치 데이터를 통해 지도에 표시하기 위해서 거점도시의 위도, 경도 정보를 웹 스크래핑</p>
+                                                                        <br><br>
+                                                                        <h6><strong>4. 행정안전부 주민등록 인구통계 - 주민등록 인구 및 세대현황</strong></h6>
+                                                                        <p class="m-0">• 시도별 연간 인구수 정보를 활용하여 Bubble plot의 버블에 크기를 지정하는데 사용</p>
+                                                                        <br><br>
                                                                     </div>
                                                                 </div>
                                                             </div>
