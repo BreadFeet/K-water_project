@@ -1,0 +1,163 @@
+{% extends 'home.html' %}
+{% load static %}
+{% block content %}
+
+                    <div class="pcoded-content">
+                        <div class="pcoded-inner-content">
+
+                            <div class="main-body">
+                                <div class="page-wrapper">
+                                    <!-- Page-header start -->
+                                    <div class="page-header card">
+                                        <div class="row align-items-end">
+                                            <div class="col-lg-8">
+                                                <div class="page-header-title">
+                                                    <i class="icofont icofont icofont icofont-file-document bg-c-pink"></i>
+                                                    <div class="d-inline">
+                                                        <h4>분석 방법</h4>
+                                                        <span>사용한 데이터셋, 분석 방향, 전처리 방법 등을 설명합니다.</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Page-header end -->
+
+                                    <div class="page-body">
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <div class="card">
+                                                    <div class="card-header">
+                                                        <h5>How To Preprocess and Analyze Data</h5>
+                                                        <span>Explanation on each chart related to water quality data</span>
+                                                        <div class="card-header-right">
+                                                            <ul class="list-unstyled card-option" style="width: 35px;">
+                                                                <li class=""><i class="icofont icofont-simple-left"></i></li>
+                                                                <li><i class="icofont icofont-maximize full-card"></i></li>
+                                                                <li><i class="icofont icofont-minus minimize-card"></i></li>
+                                                                <li><i class="icofont icofont-refresh reload-card"></i></li>
+                                                                <li><i class="icofont icofont-error close-card"></i></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-block" style="font-family:'MaruBuri-Regular';">
+                                                    <!--test-->
+                                                         <div class="col-sm-12">
+                                                             <h5>1. 지역별 수질 차트</h5><br>
+                                                                <dl class="dl-horizontal row">
+                                                                    <dd class="col-sm-12 col-sm-offset-3">선택한 지역의 수돗물 중 몇가지 항목의 농도를 확인할 수 있도록 하였습니다.
+                                                                            농도 변화 폭이 크면서 비슷한 크기의 값이어서 하나의 그래프 축 안에서 확인하기 쉬운 9가지 물질(<b>불소, 붕소, 알루미늄, 아연,
+                                                                            톨루엔, 총트리할로메탄, 할로아세틱에시드, 포름알데히드, 클로로포름</b>)을 선정하여 지역별로 확인할 수 있도록 하였습니다.<br><br>
+                                                                    <dt class="col-sm-2">데이터셋</dt>
+                                                                    <dd class="col-sm-10">환경부 K-water 국가상수도정보시스템 상수도 정보 > 먹는물 수질검사자료(정수) 2008~2019년 12개년 자료</dd>
+                                                                    <dt class="col-sm-2">데이터 형태</dt>
+                                                                    <dd class="col-sm-10">xlsx 다운로드 파일</dd>
+                                                                    <dt class="col-sm-2">데이터 전처리</dt>
+                                                                    <dd class="col-sm-10">
+                                                                        <b>1) 브롬산염</b>: 2017년부터 측정된 값이므로 제외<br>
+                                                                        <b>2) Uranium</b>: 2019년만 측정된 값이므로 제외<br>
+                                                                        <b>3) 총 대장균군, 대장균/분원성대장균군, 냄새, 맛</b>: 모두 '적합'이므로 변별력이 없어서 제외<br>
+                                                                        <b>4) 탁도</b>: NTU 단위를 ppm으로 환산하기 위한 탁도 측정기기의 계수를 알 수 없기 때문에 제외<br>
+                                                                        <b>5) 결측치 처리</b><br>
+                                                                            - 수돗물 내 검사항목들은 극미량이 존재하거나 거의 존재하지 않는 와중에 값의 유무가 영향을 주는 경우가 대부분이기 때문에
+                                                                            <b>결측치는 0으로 처리하는게 맞다고 판단함</b>. 또한 수질검사에 중요한 항목이었다면 측정하였을 것<br>
+                                                                            - 결측치가 있는 데이터를 제외하는 경우, 약 65개 컬럼 중 하나만 결측치가 있어도 제외되어 버리기 때문에 데이터량이 크게 감소하게 됨.<br>
+                                                                            1년 평균 농도를 구할 때 일부 정수장 데이터만 포함되게 되면 bias가 생길 수 있다고 판담함<br>
+                                                                            - 결측치를 평균으로 치환하는 경우, 시설용량이 큰 지역의 결측치가 평균으로 치환되면 1년 평균농도값을 구할 때 영향을 크게 미치기 때문에
+                                                                            옳지 않다고 판단함<br>
+                                                                            ◽ 참고) 물질의 1년 평균 농도(mg/L) = (시설용량(㎥/일) * 물질농도(mg/L) * 1000)의 합 / 시설용량(㎥/일)의 합 * 0.001<br>
+                                                                        <b>6)</b> 이후 함께 분석할 건강관련요인 데이터와 비교하여 양쪽 중 한쪽에 <b>'세종특별자치시'</b> 데이터가 없는 연도에 대해서는 세종시 데이터를 포함하지 않음<br>
+                                                                    </dd>
+                                                                    <dt class="col-sm-2">분석 라이브러리</dt>
+                                                                    <dd class="col-sm-10">Pandas, Numpy</dd>
+                                                                    <dt class="col-sm-2">시각화 도구</dt>
+                                                                    <dd class="col-sm-10">Highcharts</dd>
+                                                                    <img src="{% static 'assets/images/water_data_image.png' %}" style="width:780px; padding:0px 50px"><br>
+                                                                    <br><br><br>
+                                                                </dl>
+                                                            </div>
+                                                         <!--test-->
+                                                         <!--Typography list Starts-->
+                                                         <div class="col-sm-12">
+                                                             <h5>2. 먹는물 지표 비교</h5><br>
+                                                                 <dl class="dl-horizontal row">
+                                                                     <dd class="col-sm-12 col-sm-offset-3">음용수로서의 수돗물을 평가하기 위한 지표로는 맛, 냄새, 색, 이물질, 느낌이 있습니다. 수질 데이터에서 이와 관련된 항목들은
+                                                                         '적합'으로 제외되었기 떄문에, 이를 평가할 수 있는 5가지 항목의 농도(<b>잔류염소, 아연, 철, 망간, 탁도</b>)를 확인하여서
+                                                                         물맛이 비슷한 지역을 Spider Chart로 확인하였습니다.<br><br>
+                                                                    <dt class="col-sm-2">데이터셋</dt>
+                                                                    <dd class="col-sm-10">환경부 K-water 국가상수도정보시스템 상수도 정보 > 먹는물 수질검사자료(정수) 2021년 6월 자료</dd>
+                                                                    <dt class="col-sm-2">데이터 형태</dt>
+                                                                    <dd class="col-sm-10">xlsx 다운로드 파일</dd>
+                                                                    <dt class="col-sm-2">분석 라이브러리</dt>
+                                                                    <dd class="col-sm-10">Pandas</dd>
+                                                                    <dt class="col-sm-2">시각화 라이브러리</dt>
+                                                                    <dd class="col-sm-10">Matplotlib</dd>
+                                                                    <img src="{% static 'assets/images/edible_water_index.png' %}" style="width:400px"><br>
+                                                                    <br><br><br>
+                                                                 </dl>
+                                                            </div>
+                                                         <!--Typography Ends-->
+                                                         <!--Typography list Starts-->
+                                                         <div class="col-sm-12">
+                                                             <h5>3. 기준치 비교 차트</h5><br>
+                                                                 <dl class="dl-horizontal row">
+                                                                    <dd class="col-sm-12 col-sm-offset-3">모든 수질 검사항목에는 기준치 값이 정해져 있고 수돗물의 경우 대부분 측정치가 기준치 이하이지만, 1년 평균 농도를 구하게 되면 기준치 이상인 데이터가 있더라도 그 값이 희석되는 효과가 나타납니다.
+                                                                                               따라서 원본 데이터 그대로를 사용하여서 기준치 이상인 값을 그래프로 쉽게 확인하고자 하였습니다.<br>
+                                                                                               데이터셋의 경우, 수돗물보다는 기준치를 넘기는 값이 더 쉽게 발견될 것이라고 예상되는 지하수 원수 데이터를 사용하였으며, 검사 항목 중 검출량이 있는 질산성 질소의 농도를 기준치와 비교하였습니다.<br>
+                                                                                               또한 방사선 물질인 라돈의 수돗물 내 농도 데이터를 사용하여 기준치 이상이 확인된 정수장명을 확인하였습니다.<br><br>
+                                                                    <dt class="col-sm-2">데이터셋</dt>
+                                                                    <dd class="col-sm-10">1) 환경부 K-water 국가상수도정보시스템 상수도 정보 > 먹는물 수질검사자료(원수-취수장) > 지하수 2021년 상반기 자료<br>
+                                                                                          2) 환경부 K-water 국가상수도정보시스템 상수도 정보 > 수질감시항목 검사자료(정수) > 라돈 2021년 상반기 자료</dd>
+                                                                    <dt class="col-sm-2">데이터 형태</dt>
+                                                                    <dd class="col-sm-10">xlsx 다운로드 파일</dd>
+                                                                    <dt class="col-sm-2">데이터 전처리</dt>
+                                                                    <dd class="col-sm-10">
+                                                                    </dd>
+                                                                    <dt class="col-sm-2">분석 라이브러리</dt>
+                                                                    <dd class="col-sm-10">Pandas</dd>
+                                                                    <dt class="col-sm-2">시각화 라이브러리</dt>
+                                                                    <dd class="col-sm-10">Seaborn, Matplotlib</dd>
+                                                                    <br><br><br>
+                                                                 </dl>
+                                                            </div>
+                                                            <!--Typography Ends-->
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="styleSelector">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+<!-- Required Jquery -->
+<script type="text/javascript" src="{% static 'assets/js/jquery/jquery.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'assets/js/jquery-ui/jquery-ui.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'assets/js/popper.js/popper.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'assets/js/bootstrap/js/bootstrap.min.js' %}"></script>
+<!-- jquery slimscroll js -->
+<script type="text/javascript" src="{% static 'assets/js/jquery-slimscroll/jquery.slimscroll.js' %}"></script>
+<!-- modernizr js -->
+<script type="text/javascript" src="{% static 'assets/js/modernizr/modernizr.js' %}"></script>
+<script type="text/javascript" src="{% static 'assets/js/modernizr/css-scrollbars.js' %}"></script>
+<!-- classie js -->
+<script type="text/javascript" src="{% static 'assets/js/classie/classie.js' %}"></script>
+<!-- Custom js -->
+<script type="text/javascript" src="{% static 'assets/js/script.js' %}"></script>
+<script src="{% static 'assets/js/pcoded.min.js' %}"></script>
+<script src="{% static 'assets/js/demo-12.js' %}"></script>
+<script src="{% static 'assets/js/jquery.mCustomScrollbar.concat.min.js' %}"></script>
+</body>
+
+</html>
+{% endblock %}

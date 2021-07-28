@@ -9,7 +9,7 @@ def main(request):
     return render(request, 'main.html')
 
 def info1(request):
-    return render(request, 'info1.html')
+    return render(request, 'info11.html')
 
 def chart1_1(request):
     return render(request, 'chart1_1.html')
@@ -22,7 +22,7 @@ def chart1_3(request):
 
 
 def info2(request):
-    return render(request, 'info2.html')
+    return render(request, 'info22.html')
 
 def chart2_1(request):
     return render(request, 'chart2_1.html')
@@ -32,7 +32,7 @@ def chart2_2(request):
 
 
 def info3(request):
-    return render(request, 'info3.html')
+    return render(request, 'info33.html')
 
 def ml1(request):
     return render(request, 'ml1.html')

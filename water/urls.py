@@ -21,11 +21,8 @@ from water import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.main, name='main'),
-    path('form', TemplateView.as_view(template_name='form-elements-component.html'), name='form'),
-    path('table', TemplateView.as_view(template_name='bs-basic-table.html'), name='table'),
-    path('map', TemplateView.as_view(template_name='map-google.html'), name='map'),
-    path('sample', TemplateView.as_view(template_name='sample-page.html'), name='sample'),
-    path('ml', TemplateView.as_view(template_name='ml.html'), name='ml'),
+
+    # path('info11', TemplateView.as_view(template_name='info11.html'), name='info11'),
 
     path('info1', views.info1, name='info1'),
     path('chart1_1', views.chart1_1, name='chart1_1'),

@@ -1,0 +1,159 @@
+{% extends 'home.html' %}
+{% load static %}
+{% block content %}
+
+                    <div class="pcoded-content">
+                        <div class="pcoded-inner-content">
+
+                            <div class="main-body">
+                                <div class="page-wrapper">
+                                    <!-- Page-header start -->
+                                    <div class="page-header card">
+                                        <div class="row align-items-end">
+                                            <div class="col-lg-8">
+                                                <div class="page-header-title">
+                                                    <i class="icofont icofont icofont icofont-file-document bg-c-pink"></i>
+                                                    <div class="d-inline">
+                                                        <h4>분석 방법</h4>
+                                                        <span>사용한 데이터셋, 분석 방향, 전처리 방법 등을 설명합니다.</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Page-header end -->
+
+                                    <div class="page-body">
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <div class="card">
+                                                    <div class="card-header">
+                                                        <h5>How To Preprocess and Analyze Data</h5>
+                                                        <span>Explanation on each chart related to water quality data</span>
+                                                        <div class="card-header-right">
+                                                            <ul class="list-unstyled card-option" style="width: 35px;">
+                                                                <li class=""><i class="icofont icofont-simple-left"></i></li>
+                                                                <li><i class="icofont icofont-maximize full-card"></i></li>
+                                                                <li><i class="icofont icofont-minus minimize-card"></i></li>
+                                                                <li><i class="icofont icofont-refresh reload-card"></i></li>
+                                                                <li><i class="icofont icofont-error close-card"></i></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                    <!--Typography list Starts-->
+                                                    <div class="card-block" style="font-family:'MaruBuri-Regular';">
+                                                    <div class="col-sm-12">
+                                                        <h5>1. 지역별 건강지표 차트</h5>
+                                                        <br>
+                                                        <h5>1) Line Chart</h5><br>
+                                                            <dl class="dl-horizontal row">
+                                                                <dd class="col-sm-12 col-sm-offset-3">선택한 지역의 건강관련요인 중 분석하고자 하는 6가지 항목(<b>삶의 질 지수, 양호한 주관적 건강수준 인지율, 스트레스 인지율, 우울감 경험률,
+                                                            주관적 구강건강이 나쁜 인구의 분율, 연간 보건기관 이용률</b>)를 확인할 수 있도록 하였습니다. 6가지 항목 모두 조율이 아닌 2005년 추계인구로 연령표준화된 표준화율을 사용하였습니다.<br><br>
+                                                            <b>삶의 질 지수, 양호한 주관적 건강수준 인지율, 스트레스 인지율, 우울감 경험률</b> 항목은 분명한 병리학적 원인이 있는 것이 아니며 여러 원인에 의해 영향을 받을 수 있는 가능성이 열려있는 항목이기 때문에 선정하였습니다.
+                                                            예를 들어, 일상 용수의 심미적 요소에 의해 삶의 질이 영향을 받을 수도 있고, 우울감의 경우 특정 물질의 농도와 연관성을 보여서 인과관계를 의심해 볼 수 있지 않을까 하는 생각으로 선정하게 되었습니다.<br>
+                                                            또한 <b>주관적 구강건강이 나쁜 인구의 분율</b>은 매일 양치하면서 구강 내 노출되는 물질에 의해 영향을 받는 부분이 있지 않을지 확인하고자 하였으며, <b>연간 보건기관 이용률</b>은 수질과 건강의 전반적인 연관성을 확인하기 위해 선정하였습니다.<br><br>
+                                                            원본 데이터의 경우 각 시도별 합계 데이터와 시군구 데이터가 모두 있으나, 수질 데이터와 공통된 지역을 뽑아내기 위해서 시도별 합계 데이터만을 사용하였습니다.<br><br>
+                                                                <dt class="col-sm-2">데이터셋</dt>
+                                                                <dd class="col-sm-10">질병관리청 지역사회 건강조사 - 지역사회 건강관련 요인 데이터베이스 2008년~2019년 12개년 자료</dd>
+                                                                <dt class="col-sm-2">데이터 형태</dt>
+                                                                <dd class="col-sm-10">xlsx 다운로드 파일</dd>
+                                                                <dt class="col-sm-2">데이터 전처리</dt>
+                                                                <dd class="col-sm-10">
+                                                                매년 다른 sheet에 작성되어 있어서 각각의 데이터프레임으로 필요한 컬럼을 추출한 후에 12개 데이터프레임을 병합<br>
+                                                                <b>1) 결측치 처리</b>: 2008년에 '연간 보건기관 이용률' 항목이 집계되지 않아서 생긴 결측치는, 수질 데이터와 동일하게 0으로 치환함<br>
+                                                                <b>2)</b> 이후 함께 분석할 수질 데이터와 비교하여 양쪽 중 한쪽에 <b>'세종특별자치시'</b> 데이터가 없는 연도에 대해서는 세종시 데이터를 포함하지 않음
+                                                                </dd>
+                                                                <dt class="col-sm-2">분석 라이브러리</dt>
+                                                                <dd class="col-sm-10">Pandas</dd>
+                                                                <dt class="col-sm-2">시각화 도구</dt>
+                                                                <dd class="col-sm-10">Highcharts</dd>
+                                                                <img src="{% static 'assets/images/health_data_image.png' %}" style="width:830px"><br>
+                                                                <br><br><br>
+                                                            </dl>
+                                                        </div>
+                                                        <!--Typography Ends-->
+                                                        <!--Typography list Starts-->
+                                                         <div class="col-sm-12">
+                                                             <h5>2) Map Chart</h5><br>
+                                                                 <dl class="dl-horizontal row">
+                                                                    <dd class="col-sm-12 col-sm-offset-3">연도를 설정하면 모든 지역의 6가지 항목을 한번에 확인, 비교할 수 있도록 하고자 하였습니다.
+                                                                        이를 위해 <b>카카오맵 API</b>를 사용하였고, 각 지역의 위도/경도 정보는 <b>웹스크래핑</b>을 통해 얻었습니다.
+                                                                        건강지표 데이터에서 설정된 지역은 시도 단위인데 반해 마커를 표시할 위도/경도는 하나의 도시로 설정해야 하기 때문에,
+                                                                        각 도의 도청 소재지 또는 위도/경도 값을 찾을 수 있는 근교의 다른 도시에 마커를 설정하였습니다.<br><br>
+                                                                    <dt class="col-sm-2">데이터셋</dt>
+                                                                    <dd class="col-sm-10">질병관리청 지역사회 건강조사 - 지역사회 건강관련 요인 데이터베이스 2008년~2019년 12개년 자료</dd>
+                                                                    <dt class="col-sm-2">데이터 형태</dt>
+                                                                    <dd class="col-sm-10">xlsx 다운로드 파일, 웹문서 스크래핑, API</dd>
+                                                                    <dt class="col-sm-2">데이터 전처리</dt>
+                                                                    <dd class="col-sm-10">
+                                                                    ◽ <b>행정구역상 지역</b>: ['서울특별시', '부산광역시', '대구광역시', '인천광역시', '광주광역시', '대전광역시', '울산광역시', '세종특별자치시', '경기도', '강원도', '충청북도', '충청남도', '전라북도', '전라남도', '경상북도', '경상남도', '제주특별자치도']<br>
+                                                                    ◽ <b>위도/경도 표시 위치</b>: ['서울특별시', '부산광역시', '대구광역시', '인천광역시', '광주광역시', '대전광역시', '울산광역시', '세종특별자치시', '수원시', '원주시', '청주시', '천안시', '전주시', '광주시', '안동시', '창원시', '제주시']
+                                                                    </dd>
+                                                                    <dt class="col-sm-2">분석 라이브러리</dt>
+                                                                    <dd class="col-sm-10">Pandas, Scipy</dd>
+                                                                    <dt class="col-sm-2">시각화 도구</dt>
+                                                                    <dd class="col-sm-10">카카오맵 API</dd>
+                                                                    <img src="{% static 'assets/images/map_data_image.png' %}" style="width:830px">
+                                                                    <br><br><br>
+                                                                 </dl>
+                                                            </div>
+                                                        <!--Typography Ends-->
+                                                        <!--Typography list Starts-->
+                                                         <div class="col-sm-12">
+                                                             <h5>2. 연도별 변화 추이</h5><br>
+                                                                 <dl class="dl-horizontal row">
+                                                                    <dd class="col-sm-12 col-sm-offset-3">   연관성이 있을것이라고 생각한 항목간의 상관관계를 볼 수 있는 Bubble plot을 연도별로 그린 뒤, 움직이는 이미지로 만들어서 연도별 변화 추이를 확인할 수 있도록 하였습니다.
+                                                                                  연관성을 확인한 항목으로는 <b>스트레스 인지율 - 우울감 경험률, 주관적 건강수준 인지율 - 연간 보건기관 이용률, 스트레스 인지율 - 삶의 질 지수</b>입니다.<br>
+                                                                                  Bubble plot에서 인구수를 반영하여 버블마커의 크기를 지정하기 위해서 추가적으로 인구통계 자료를 가져와서 병합하였습니다.<br><br>
+                                                                    <dt class="col-sm-2">데이터셋</dt>
+                                                                    <dd class="col-sm-10">질병관리청 지역사회 건강조사 - 지역사회 건강관리 요인 데이터베이스 2009년~2018년 10개년 자료<br>
+                                                                                          행정안전부 주민등록 인구통계 - 2009년~2018년 10개년 자료</dd>
+                                                                    <dt class="col-sm-2">데이터 형태</dt>
+                                                                    <dd class="col-sm-10">xlsx, csv 다운로드 파일</dd>
+                                                                    <dt class="col-sm-2">분석 라이브러리</dt>
+                                                                    <dd class="col-sm-10">Pandas</dd>
+                                                                    <dt class="col-sm-2">시각화 라이브러리</dt>
+                                                                    <dd class="col-sm-10">Matplotlib</dd>
+                                                                    <br><br><br>
+                                                                 </dl>
+                                                            </div>
+                                                        <!--Typography Ends-->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="styleSelector">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+<!-- Required Jquery -->
+<script type="text/javascript" src="{% static 'assets/js/jquery/jquery.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'assets/js/jquery-ui/jquery-ui.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'assets/js/popper.js/popper.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'assets/js/bootstrap/js/bootstrap.min.js' %}"></script>
+<!-- jquery slimscroll js -->
+<script type="text/javascript" src="{% static 'assets/js/jquery-slimscroll/jquery.slimscroll.js' %}"></script>
+<!-- modernizr js -->
+<script type="text/javascript" src="{% static 'assets/js/modernizr/modernizr.js' %}"></script>
+<script type="text/javascript" src="{% static 'assets/js/modernizr/css-scrollbars.js' %}"></script>
+<!-- classie js -->
+<script type="text/javascript" src="{% static 'assets/js/classie/classie.js' %}"></script>
+<!-- Custom js -->
+<script type="text/javascript" src="{% static 'assets/js/script.js' %}"></script>
+<script src="{% static 'assets/js/pcoded.min.js' %}"></script>
+<script src="{% static 'assets/js/demo-12.js' %}"></script>
+<script src="{% static 'assets/js/jquery.mCustomScrollbar.concat.min.js' %}"></script>
+</body>
+
+</html>
+{% endblock %}
